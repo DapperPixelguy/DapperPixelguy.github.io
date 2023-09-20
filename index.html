@@ -36,6 +36,19 @@ html, body{
     overflow: hidden;
     transform: translateY(-50%);    
 }
+#Username{
+position: relative;
+margin: 0 auto;
+width: 24em;
+text-align: center; 
+position: relative;
+font-size: 300%;
+overflow: hidden; 
+white-space: nowrap;
+border-right: 2px solid rgba(255,255,255,.75);
+
+  
+}
 #gradient-top{
   height: 10vh;
   background:linear-gradient(rgb(71, 71, 71), rgb(25, 25, 25));
@@ -49,7 +62,7 @@ html, body{
 }
 /* Animation */
 .anim-typewriter{
-  animation: typewriter 2s steps(13) 1s 1 normal both,
+  animation: typewriter 2s steps(14) 1s 1 normal both,
              blinkTextCursor 500ms steps(44) infinite normal;
 }
 @keyframes typewriter{
@@ -65,7 +78,7 @@ html, body{
 <header id="gradient-top"></header>
 <body>
   <div id="TntroText", style='position: relative; top: 7em'>
-    <center><h1 style="text-align: center; position: relative; font-size: 300%, overflow= hidden, white-space: nowrap", class='anim-typewriter'>DapperPixelguy</h1></center> 
+    <center><h1 id="Username", class='anim-typewriter'>DapperPixelguy</h1></center> 
    <!-- <p style="text-align: center">Welcome to my website! (center this!)</p> -->
     <p class="line-1 anim-typewriter">[Sample Text]</p> 
   </div>

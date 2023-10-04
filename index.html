@@ -115,6 +115,10 @@ font-size: 6vh
     top: 7em
     
   }
+  #gradient-top.full-width{
+  height: 0vh;
+    
+  }
 }
 </style>
 
@@ -135,11 +139,14 @@ font-size: 6vh
   // Function to check and apply the class based on div width
   function checkDivWidth() {
     var introText = document.getElementById('IntroText');
+    var gradTop = document.getElementById('gradient-top');
     
     if (introText.scrollWidth > window.innerWidth) {
       introText.classList.add('full-width');
+      gradTop.classList.add('full-width')
     } else {
       introText.classList.remove('full-width');
+      gradTop.classList.remove('full-width')
     }
   }
 

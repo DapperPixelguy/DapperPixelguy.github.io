@@ -104,7 +104,8 @@ font-size: 6vh
   div#IntroText.full-width{
     height:100%;
     top: 0em;
-    min-width: 0em
+    min-width: 0em;
+    border: 0px
   }
   #IntroText.full-width #Trollface {
     top: 0em;
@@ -118,6 +119,10 @@ font-size: 6vh
   }
   #gradient-top.full-width{
   height: 0vh;
+    
+  }
+  body.full-width{
+    border: 3px solid rgb(54,57,62)
     
   }
 }
@@ -141,13 +146,16 @@ font-size: 6vh
   function checkDivWidth() {
     var introText = document.getElementById('IntroText');
     var gradTop = document.getElementById('gradient-top');
+    var body = document.body
     
     if (introText.scrollWidth > window.innerWidth) {
       introText.classList.add('full-width');
-      gradTop.classList.add('full-width')
+      introText.classList.add('full-width');
+      body.classList.add('full-width')
     } else {
       introText.classList.remove('full-width');
       gradTop.classList.remove('full-width')
+      body.classList.remove('full-width');
     }
   }
 

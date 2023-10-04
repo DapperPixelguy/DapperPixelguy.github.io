@@ -86,7 +86,11 @@ line-height: 1.1;
   from{border-right-color: rgba(255,255,255,.75);}
   to{border-right-color: transparent;}
 }
-
+@media screen and (max-width: 100vw){
+  div#IntroText:not(.full-width){
+    background: green;
+  }
+}
 </style>
 
 <header id="gradient-top"></header>
@@ -101,7 +105,23 @@ line-height: 1.1;
     
     
   </div>
-  
+
+  <script>
+  // Function to check and apply the class based on div width
+  function checkDivWidth() {
+    var introText = document.getElementById('IntroText');
+    
+    if (introText.scrollWidth > window.innerWidth) {
+      introText.classList.remove('full-width');
+    } else {
+      introText.classList.add('full-width');
+    }
+  }
+
+  // Run the function on page load and resize
+  window.addEventListener('load', checkDivWidth);
+  window.addEventListener('resize', checkDivWidth);
+</script>
 </body>
 
 </html>

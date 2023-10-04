@@ -87,7 +87,7 @@ line-height: 1.1;
   to{border-right-color: transparent;}
 }
 @media screen and (max-width: 100vw){
-  div#IntroText:not(.full-width){
+  div#IntroText.full-width{
     background: green;
   }
 }
@@ -112,9 +112,9 @@ line-height: 1.1;
     var introText = document.getElementById('IntroText');
     
     if (introText.scrollWidth > window.innerWidth) {
-      introText.classList.remove('full-width');
-    } else {
       introText.classList.add('full-width');
+    } else {
+      introText.classList.remove('full-width');
     }
   }
 

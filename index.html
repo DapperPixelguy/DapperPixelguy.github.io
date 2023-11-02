@@ -44,6 +44,9 @@ html, body{
   transition: width 2s;
 
 }
+#IntroText.clicked{
+  width: 60em
+}
 #Username{
 position: relative;
 margin: 0 auto;
@@ -204,7 +207,7 @@ function revealPage(){
 var x = document.getElementById("IntroText")
 var y = document.getElementById("reveal-button")
 x.style.display = 'block'
-x.classList.add = 'IntroText-clicked'
+x.classList.add('.clicked')
 y.style.display = 'none'
 
 

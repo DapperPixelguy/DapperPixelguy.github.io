@@ -63,6 +63,10 @@ left: 50%;
 transform: translate(-50%);
 font-size: 4em;
 opacity: 0;
+transition: opacity 1s 2.5s;
+}
+#Username.clicked{
+  opacity: 1;
 }
 .social-Links{
   width: 38.5em; 
@@ -210,8 +214,10 @@ opacity: 0;
 function revealPage(){
 var x = document.getElementById("IntroText")
 var y = document.getElementById("reveal-button")
+var z = document.getElementById("Username")
 x.style.display = 'block'
 x.classList.add("clicked")
+z.classList.add("clicked")
 setTimeout(() => {
   x.style.overflowX = 'auto';
 }, 2100)

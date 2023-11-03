@@ -27,7 +27,7 @@ html, body{
 }
 #IntroText{
   position: absolute; 
-  overflow-x: auto;
+  overflow-x: hidden;
   min-height: 20em;   
   min-width: 0em;
   top: 50%; 
@@ -41,13 +41,14 @@ html, body{
   background-image: linear-gradient(135deg, rgb(50,50,50), rgb(25,25,25));
   transform: translate(-50%, -50%);
   display: block;
-  transition: width 2s, min-width 3s;
+  transition: width 2s, min-width 2.1s, overflow-x 2.1s;
   
 
 }
 #IntroText.clicked{
   width: 60em;
   min-width: 48em;
+  overflow-x: auto;
 
 }
 #Username{

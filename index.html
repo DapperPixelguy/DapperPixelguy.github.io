@@ -42,7 +42,7 @@ html, body{
   transform: translate(-50%, -50%);
   display: block;
   transition: width 2s, min-width 0s 2.1s;
-  
+  opacity: 0;
 
 }
 #IntroText.clicked{
@@ -76,7 +76,13 @@ transition: opacity 1s 1.5s;
   margin: 0 auto;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 1s 1.7s;
+}
+.social-Links.clicked{
+opacity: 1;
+
 }
 .social-Links p{
   transition: background-color 0.45s, color 0.45s;
@@ -215,9 +221,11 @@ function revealPage(){
 var x = document.getElementById("IntroText")
 var y = document.getElementById("reveal-button")
 var z = document.getElementById("Username")
-x.style.display = 'block'
+var a = document.getElementById("social-Links")
+x.style.opacity = '1'
 x.classList.add("clicked")
 z.classList.add("clicked")
+a.classList.add("clicked")
 setTimeout(() => {
   x.style.overflowX = 'auto';
 }, 2100)

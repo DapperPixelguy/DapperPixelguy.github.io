@@ -41,16 +41,13 @@ html, body{
   background-image: linear-gradient(135deg, rgb(50,50,50), rgb(25,25,25));
   transform: translate(-50%, -50%);
   display: block;
-  transition: width 2s, min-width 0s 2.1s, overflow-x 3s 2.1s;
+  transition: width 2s, min-width 0s 2.1s;
   
 
 }
 #IntroText.clicked{
   width: 60em;
   min-width: 48em;
-  overflow-x: auto;
-
-
 }
 #Username{
 position: relative;
@@ -214,6 +211,9 @@ var x = document.getElementById("IntroText")
 var y = document.getElementById("reveal-button")
 x.style.display = 'block'
 x.classList.add("clicked")
+setTimeout(() => {
+  x.style.overflow-x: auto;
+}, 2100)
 y.style.display = 'none'
 
 

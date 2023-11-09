@@ -196,7 +196,7 @@ This allows it to not snap when there is free space on the screen.
     <!-- Your content here -->
     <div id='social-Links'>
       <div style='position: relative;'>
-        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em;'>[Discord]</a>
+        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em;'href='http://steamcommunity.com/id/dapperpixelguy'>[Discord]</a>
         <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
       </div>
       <div style='position: relative'>
@@ -217,6 +217,7 @@ This allows it to not snap when there is free space on the screen.
     function checkDivWidth() {
       var introText = document.getElementById('IntroText');
       var gradTop = document.getElementById('gradient-top');
+      var y = document.getElementById("reveal-button")
 
       if (introText.scrollWidth > window.innerWidth) {
         introText.classList.add('full-width');
@@ -230,6 +231,7 @@ This allows it to not snap when there is free space on the screen.
     // Run the function on page load and resize
     window.addEventListener('load', checkDivWidth);
     window.addEventListener('resize', checkDivWidth);
+    y.addEventListener('click', checkDivWidth)
   </script>
   <script>
     function revealPage() {

@@ -20,9 +20,21 @@ This allows it to not snap when there is free space on the screen.
       height: calc(100vh);
       color: rgba(255, 255, 255, .75);
       font-family: 'Anonymous Pro', monospace;
-      background-color: rgb(25, 25, 25);
+      background: linear-gradient(-45deg, rgb(100,100,100), rgb(25,25,25), rgb(50,50,50));
+	background-size: 150%;
+	animation: gradient 30s ease infinite;
     }
-
+    @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
     html,
     body {
       margin: 0;
@@ -103,15 +115,6 @@ This allows it to not snap when there is free space on the screen.
       color: rgb(25, 25, 25);
     }
     
-    #gradient-top {
-      height: 10vh;
-      background: linear-gradient(rgb(50, 50, 50), rgb(25, 25, 25));
-      width: 100vw;
-      border: 0;
-      margin: 0;
-      padding: 0;
-      left: 0;
-    }
 
     #reveal-button {
       position: absolute;

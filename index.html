@@ -62,7 +62,22 @@ This allows it to not snap when there is free space on the screen.
       width: 60em;
       min-width: 45em;
     }
-
+    #reveal-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      height: 3em;
+      width: 9em;
+      font-size: 2em;
+      background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+      color: rgba(120, 120, 120, 0.5);
+      font-weight: bold;
+      text-shadow: 0 2px rgb(200, 200, 200);
+      z-index: 1;
+      display: none;
+    }
     #Username {
       position: relative;
       margin: 0 auto;
@@ -110,23 +125,6 @@ This allows it to not snap when there is free space on the screen.
     #social-Links a:hover {
       background-color: rgba(255, 255, 255, .75);
       color: rgb(25, 25, 25);
-    }
-    
-
-    #reveal-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 5px;
-      height: 3em;
-      width: 9em;
-      font-size: 2em;
-      background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
-      color: rgba(120, 120, 120, 0.5);
-      font-weight: bold;
-      text-shadow: 0 2px rgb(200, 200, 200);
-      z-index: 1;
     }
 
     /* Animation */
@@ -190,6 +188,7 @@ This allows it to not snap when there is free space on the screen.
 </head>
 
 <body>
+
   <header id="gradient-top"></header>
   <button id='reveal-button' onclick='revealPage()'>Enter</button>
   <div id="IntroText">
@@ -197,7 +196,7 @@ This allows it to not snap when there is free space on the screen.
     <!-- Your content here -->
     <div id='social-Links'>
       <div style='position: relative;'>
-        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discordapp.com/users/639945209446400020'>[Discord]</a>
+        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em;'>[Discord]</a>
         <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
       </div>
       <div style='position: relative'>
@@ -205,7 +204,7 @@ This allows it to not snap when there is free space on the screen.
         <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
       </div>
       <div style='position: relative'>
-        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em'>[Github]</a>
         <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
       </div>
     </div>
@@ -234,7 +233,8 @@ This allows it to not snap when there is free space on the screen.
     window.addEventListener('resize', checkDivWidth);
     y.addEventListener('click', checkDivWidth)
   </script>
-  <script>
+ 
+ <script>
     function revealPage() {
       var x = document.getElementById("IntroText")
       var y = document.getElementById("reveal-button")
@@ -250,6 +250,13 @@ This allows it to not snap when there is free space on the screen.
         x.style.overflowX = 'auto';
       }, 2100)
     }
+  </script>
+  
+  <script>
+  window.onLoad = function(){
+  var y = document.getElementById("reveal-button")
+  y.style.display = 'block'
+  }
   </script>
 </body>
 

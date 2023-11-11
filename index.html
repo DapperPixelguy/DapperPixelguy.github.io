@@ -54,7 +54,7 @@ This allows it to not snap when there is free space on the screen.
       background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
       transform: translate(-50%, -50%);
       display: block;
-      transition: width 1.6s, min-width 0s 0s; /* 2s def*/
+      transition: width 1.6s, min-width 0s 2.1s;
       opacity: 0;
     }
 
@@ -248,15 +248,15 @@ This allows it to not snap when there is free space on the screen.
 
       setTimeout(() => {
         x.style.overflowX = 'auto';
-      }, 0) //2100 def
+      }, 2100)
     }
   </script>
   
   <script>
-  window.onload = function(){
-  var y = document.getElementById("reveal-button")
-  y.style.display = 'block'
-  }
+ document.addEventListener('DOMContentLoaded', function() {
+  var y = document.getElementById("reveal-button");
+  y.style.display = 'block';
+});
   </script>
 </body>
 

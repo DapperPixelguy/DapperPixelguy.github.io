@@ -243,10 +243,7 @@ This allows it to not snap when there is free space on the screen.
     	y = document.getElementById('reveal-button')
     })
     
-    setTimeout(()=>{
-    	window.addEventListener('load', checkDivWidth);
-    	window.addEventListener('resize', checkDivWidth);
-    }, 1601)
+
 
 
     
@@ -269,6 +266,11 @@ This allows it to not snap when there is free space on the screen.
         x.style.overflowX = 'auto';
       }, 2100)
       setTimeout((checkDivWidth), 1601)
+      setTimeout(()=>{
+    		window.addEventListener('load', checkDivWidth);
+    		window.addEventListener('resize', checkDivWidth);
+      	console.log('Run!')
+    }, 1601)
     }
   </script>
   

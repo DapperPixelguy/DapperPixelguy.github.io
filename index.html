@@ -236,6 +236,17 @@ This allows it to not snap when there is free space on the screen.
         introText.classList.remove('full-width');
         gradTop.classList.remove('full-width');
       }
+      let details = navigator.userAgent
+      let regexp = /android|iphone|kindle|ipad/i
+      let isMobileDevice = regexp.test(details)
+      
+      if (isMobileDevice){
+        introText.classList.add('full-width');
+        gradTop.classList.add('full-width');
+      }
+      else{
+      }
+   		
     }
 
     // Run the function on page load and resize

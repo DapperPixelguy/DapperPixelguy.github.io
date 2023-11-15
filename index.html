@@ -169,6 +169,7 @@ This allows it to not snap when there is free space on the screen.
         left: 0em;
         transform: translate(0, 0);
         min-width: 0em;
+	background: red;
       }
 
       #IntroText.full-width #Username {
@@ -197,7 +198,7 @@ This allows it to not snap when there is free space on the screen.
 
   <header id="gradient-top"></header>
   <button id='reveal-button' onclick='revealPage()'>Enter</button>
-  <div id="IntroText">
+  <div id="IntroText" class='full-width'>
     <h1 id="Username">DapperPixelguy</h1>
     <!-- Your content here -->
     <div id='social-Links'>
@@ -225,19 +226,15 @@ This allows it to not snap when there is free space on the screen.
     // Function to check and apply the class based on div width
     function checkDivWidth() {
     	let details = navigator.userAgent
-      let regexp = /android|iphone|kindle|ipad/i
-      let isMobileDevice = regexp.test(details)
+     	let regexp = /android|iphone|kindle|ipad/i
+      	let isMobileDevice = regexp.test(details)
       
       if (isMobileDevice){
         introText.classList.add('full-width');
-        introText.style.background = 'red';
         gradTop.classList.add('full-width');
       }
       else{
-      
-
       //var y = document.getElementById('reveal-button');
-
       if (introText.offsetWidth <= 722) {
         introText.classList.add('full-width');
         gradTop.classList.add('full-width');
@@ -245,19 +242,13 @@ This allows it to not snap when there is free space on the screen.
         introText.classList.remove('full-width');
         gradTop.classList.remove('full-width');
       }
-   		}
-    }
+   }
+ }
 
     // Run the function on page load and resize
     window.addEventListener('load', function(){
     	y = document.getElementById('reveal-button')
     })
-    
-
-
-
-    
-
   </script>
  
  <script>

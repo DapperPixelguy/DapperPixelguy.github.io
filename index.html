@@ -96,6 +96,12 @@ This allows it to not snap when there is free space on the screen.
 	  position: absolute;
 	  bottom: 0.1em;
 	  right: 1em;
+    border: 1px solid rgba(255,255,255,.75); 
+    box-sizing: border-box; 
+    padding-left: 3px; 
+    padding-right: 3px;
+    border-radius: 3px;
+    font-size: 80%
 	    
     }
 
@@ -217,11 +223,12 @@ This allows it to not snap when there is free space on the screen.
   <p id='Credit'>DapperPixelguy 2023</p>
 
   <script>
+  var y 
     // Function to check and apply the class based on div width
     function checkDivWidth() {
       var introText = document.getElementById('IntroText');
       var gradTop = document.getElementById('gradient-top');
-      var y = document.getElementById("reveal-button")
+      //var y = document.getElementById('reveal-button');
 
       if (introText.scrollWidth > window.innerWidth) {
         introText.classList.add('full-width');
@@ -233,9 +240,16 @@ This allows it to not snap when there is free space on the screen.
     }
 
     // Run the function on page load and resize
+    window.addEventListener('load', function(){
+    	y = document.getElementById('reveal-button')
+      
+      y.addEventListener('click', checkDivWidth)
+    })
     window.addEventListener('load', checkDivWidth);
     window.addEventListener('resize', checkDivWidth);
-    y.addEventListener('click', checkDivWidth)
+
+    
+
   </script>
  
  <script>
@@ -253,6 +267,7 @@ This allows it to not snap when there is free space on the screen.
       setTimeout(() => {
         x.style.overflowX = 'auto';
       }, 2100)
+      setTimeout((checkDivWidth), 1601)
     }
   </script>
   

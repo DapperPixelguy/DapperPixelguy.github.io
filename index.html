@@ -169,7 +169,19 @@ This allows it to not snap when there is free space on the screen.
         left: 0em;
         transform: translate(0, 0);
         min-width: 0em;
-      }
+        }
+        
+	#IntroText.mobile{
+	height: 100%;
+	widtht: 100%;
+	border: 0px;
+        border-radius: 0px;
+        top: 0em;
+        left: 0em;
+        transform: translate(0, 0);
+        min-width: 0em;
+	font-size: 150%
+	}
 
       #IntroText.full-width #Username {
         position: absolute;
@@ -229,7 +241,7 @@ This allows it to not snap when there is free space on the screen.
       	let isMobileDevice = regexp.test(details)
       
       if (isMobileDevice){
-        introText.classList.add('full-width');
+        introText.classList.add('mobile');
         gradTop.classList.add('full-width');
       }
       else{

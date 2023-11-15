@@ -241,14 +241,13 @@ This allows it to not snap when there is free space on the screen.
 
       //var y = document.getElementById('reveal-button');
 
-      //if (introText.offsetWidth <= 722) {
-       // introText.classList.add('full-width');
-       // gradTop.classList.add('full-width');
-    //  } else {
-      //  introText.classList.remove('full-width');
-      //  gradTop.classList.remove('full-width');
-    //  }
-      introText.style.background = 'green'
+      if (introText.offsetWidth <= 722) {
+        introText.classList.add('full-width');
+        gradTop.classList.add('full-width');
+      } else {
+        introText.classList.remove('full-width');
+        gradTop.classList.remove('full-width');
+      }
    		}
     }
 

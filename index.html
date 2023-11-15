@@ -52,13 +52,12 @@ This allows it to not snap when there is free space on the screen.
       background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
       transform: translate(-50%, -50%);
       display: block;
-      transition: width 1.6s, min-width 0s 2.1s;
+      transition: width 1.6s;
       opacity: 0;
     }
 
     #IntroText.clicked {
       width: 60em;
-      min-width: 45em;
     }
     #reveal-button {
       position: absolute;
@@ -230,7 +229,7 @@ This allows it to not snap when there is free space on the screen.
       var gradTop = document.getElementById('gradient-top');
       //var y = document.getElementById('reveal-button');
 
-      if (introText.scrollWidth > window.innerWidth) {
+      if (introText.offsetWidth <= 722) {
         introText.classList.add('full-width');
         gradTop.classList.add('full-width');
       } else {
@@ -242,11 +241,13 @@ This allows it to not snap when there is free space on the screen.
     // Run the function on page load and resize
     window.addEventListener('load', function(){
     	y = document.getElementById('reveal-button')
-      
-      y.addEventListener('click', checkDivWidth)
     })
-    window.addEventListener('load', checkDivWidth);
-    window.addEventListener('resize', checkDivWidth);
+    
+    setTimeout(()=>{
+    	window.addEventListener('load', checkDivWidth);
+    	window.addEventListener('resize', checkDivWidth);
+    }, 1601)
+
 
     
 

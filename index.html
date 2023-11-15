@@ -225,6 +225,17 @@ This allows it to not snap when there is free space on the screen.
   var y 
     // Function to check and apply the class based on div width
     function checkDivWidth() {
+    	let details = navigator.userAgent
+      let regexp = /android|iphone|kindle|ipad/i
+      let isMobileDevice = regexp.test(details)
+      
+      if (isMobileDevice){
+        introText.classList.add('full-width');
+        introText.style.background = 'red';
+        gradTop.classList.add('full-width');
+      }
+      else{
+      
       var introText = document.getElementById('IntroText');
       var gradTop = document.getElementById('gradient-top');
       //var y = document.getElementById('reveal-button');
@@ -236,19 +247,8 @@ This allows it to not snap when there is free space on the screen.
         introText.classList.remove('full-width');
         gradTop.classList.remove('full-width');
       }
-      let details = navigator.userAgent
-      let regexp = /android|iphone|kindle|ipad/i
-      let isMobileDevice = regexp.test(details)
       
-      if (isMobileDevice){
-        introText.classList.add('full-width');
-        introText.style.background = 'red';
-        gradTop.classList.add('full-width');
-      }
-      else{
-      introText.style.background = 'green';
-      }
-   		
+   		}
     }
 
     // Run the function on page load and resize

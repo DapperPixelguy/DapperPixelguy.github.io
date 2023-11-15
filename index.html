@@ -223,6 +223,8 @@ This allows it to not snap when there is free space on the screen.
 
   <script>
   var y 
+  var introText = document.getElementById('IntroText');
+  var gradTop = document.getElementById('gradient-top');
     // Function to check and apply the class based on div width
     function checkDivWidth() {
     	let details = navigator.userAgent
@@ -236,8 +238,7 @@ This allows it to not snap when there is free space on the screen.
       }
       else{
       
-      var introText = document.getElementById('IntroText');
-      var gradTop = document.getElementById('gradient-top');
+
       //var y = document.getElementById('reveal-button');
 
       if (introText.offsetWidth <= 722) {

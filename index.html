@@ -52,7 +52,7 @@ This allows it to not snap when there is free space on the screen.
       background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
       transform: translate(-50%, -50%);
       display: block;
-      transition: width 1.6s;
+      transition: width 0s;
       opacity: 0;
     }
 
@@ -161,7 +161,7 @@ This allows it to not snap when there is free space on the screen.
         border-right-color: transparent;
       }
     }
-	#IntroText.full-width {
+	    #IntroText.full-width {
         height: 100%;
         border: 0px;
         border-radius: 0px;
@@ -212,7 +212,7 @@ This allows it to not snap when there is free space on the screen.
         transform: translate(-50%);
 	     }
        
-       #IntroText.mobile #social-Links {
+       #IntroText.full-width #mobile {
         position: absolute;
         top: calc(40% + 3em);
         left: 50%;
@@ -258,7 +258,6 @@ This allows it to not snap when there is free space on the screen.
       	let isMobileDevice = regexp.test(details)
       
       if (isMobileDevice){
-	introText.style.transition='width 0s';
         introText.classList.add('mobile');
         gradTop.classList.add('full-width');
       }
@@ -281,7 +280,15 @@ This allows it to not snap when there is free space on the screen.
   </script>
  
  <script>
+   var introText = document.getElementById('IntroText');
     function revealPage() {
+    	let details = navigator.userAgent
+     	let regexp = /android|iphone|kindle|ipad/i
+      let isMobileDevice = regexp.test(details)
+      
+      if (!isMobileDevice){
+				introText.style.transition = 'width 1.6s'	
+      }
       var x = document.getElementById("IntroText")
       var y = document.getElementById("reveal-button")
       var z = document.getElementById("Username")

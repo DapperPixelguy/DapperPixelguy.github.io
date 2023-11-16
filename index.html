@@ -281,33 +281,34 @@ This allows it to not snap when there is free space on the screen.
  
  <script>
    var introText = document.getElementById('IntroText');
+   var y = document.getElementById("reveal-button")
+   var z = document.getElementById("Username")
+   var socialLinks = document.getElementById("social-Links")
     function revealPage() {
     	let details = navigator.userAgent
      	let regexp = /android|iphone|kindle|ipad/i
       let isMobileDevice = regexp.test(details)
       
       if (!isMobileDevice){
-				introText.style.transition = 'width 1.6s'	
+				introText.style.transition = 'width 1.6s'
+        setTimeout(() => {
+        		introText.style.overflowX = 'auto';
+      	}, 2100)
+      	setTimeout((checkDivWidth), 1601)
+      	setTimeout(()=>{
+    				window.addEventListener('load', checkDivWidth);
+    				window.addEventListener('resize', checkDivWidth);
+      	console.log('Run!')
+    }, 1601)
       }
-      var x = document.getElementById("IntroText")
-      var y = document.getElementById("reveal-button")
-      var z = document.getElementById("Username")
-      var socialLinks = document.getElementById("social-Links")
-      x.style.opacity = '1'
-      x.classList.add("clicked")
+      
+      introText.style.opacity = '1'
+      introText.classList.add("clicked")
       z.classList.add("clicked")
       socialLinks.classList.add("clicked")
       y.style.display = 'none'
 
-      setTimeout(() => {
-        x.style.overflowX = 'auto';
-      }, 2100)
-      setTimeout((checkDivWidth), 1601)
-      setTimeout(()=>{
-    		window.addEventListener('load', checkDivWidth);
-    		window.addEventListener('resize', checkDivWidth);
-      	console.log('Run!')
-    }, 1601)
+      
     }
   </script>
   

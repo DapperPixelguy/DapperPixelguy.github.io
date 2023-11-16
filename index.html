@@ -297,6 +297,8 @@ This allows it to not snap when there is free space on the screen.
       var y = document.getElementById("reveal-button")
       var z = document.getElementById("Username")
       var socialLinks = document.getElementById("social-Links")
+      var device = document.getElementById("Device")
+      var credit = document.getElementById("Credit")
 
       function revealPage() {
         let details = navigator.userAgent
@@ -313,6 +315,8 @@ This allows it to not snap when there is free space on the screen.
             window.addEventListener('resize', checkDivWidth);
             console.log('Run!')
           }, 1601)
+          device.style.fontSize = '120%'
+          credit.style.fontSize = '120%'
         } else {
           introText.style.transition = 'width 0s'
           z.style.transition = 'opacity 1s 0.3'

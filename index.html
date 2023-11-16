@@ -58,7 +58,7 @@ This allows it to not snap when there is free space on the screen.
         background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
         transform: translate(-50%, -50%);
         display: block;
-        transition: width 0s;
+        transition: width 1.6s;
         opacity: 0;
       }
 
@@ -97,7 +97,7 @@ This allows it to not snap when there is free space on the screen.
         transform: translate(-50%);
         font-size: 4em;
         opacity: 0;
-        transition: opacity 1s;
+        transition: opacity 1s 1.5s;
       }
 
       #Credit {
@@ -126,7 +126,7 @@ This allows it to not snap when there is free space on the screen.
         flex-flow: row nowrap;
         justify-content: space-between;
         opacity: 0;
-        transition: opacity 1s 0.2;
+        transition: opacity 1s 1.7s;
       }
 
       #social-Links.clicked {
@@ -301,9 +301,6 @@ This allows it to not snap when there is free space on the screen.
         let isMobileDevice = regexp.test(details)
 
         if (!isMobileDevice) {
-          introText.style.transition = 'width 1.6s'
-          z.style.transition = 'opacity 1s 1.5s'
-          socialLinks.style.transition = 'opacity 1s 1.7s'
           setTimeout(() => {
             introText.style.overflowX = 'auto';
           }, 2100)
@@ -314,6 +311,9 @@ This allows it to not snap when there is free space on the screen.
             console.log('Run!')
           }, 1601)
         } else {
+          introText.style.transition = 'width 0s'
+          z.style.transition = 'opacity 1s 0.3'
+          socialLinks.style.transition = 'opacity 1s 0.6'
           checkDivWidth()
         }
 

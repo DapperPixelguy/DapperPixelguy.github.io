@@ -319,8 +319,6 @@ This allows it to not snap when there is free space on the screen.
           introText.style.transition = 'width 0s'
           z.style.transition = 'opacity 1s 0.3s'
           socialLinks.style.transition = 'opacity 1s 0.6s'
-          device.style.fontSize = '300%'
-          credit.style.fontSize = '300%'
           checkDivWidth()
         }
 
@@ -346,6 +344,8 @@ This allows it to not snap when there is free space on the screen.
 
         if (isMobileDevice) {
           x.innerText = 'Viewing on: [Mobile]'
+          device.style.fontSize = '120%'
+          credit.style.fontSize = '120%'
         } else {
           x.innerText = 'Viewing on: [Desktop]'
         }

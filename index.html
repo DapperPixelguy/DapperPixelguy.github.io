@@ -1,167 +1,176 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
+  <!-- 
 Try and allow #IntroText to be scaled down past 60em, but apply fullwidth at something like 45em width instead? 
 This allows it to not snap when there is free space on the screen.
 -->
-  
-<head>
-  <title>DapperPixelguy</title>
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anonymous+Pro">
-  <link rel="icon" type="image/png" href="https://th.bing.com/th/id/OIP.vjJNW2lb4IlHMuTgLo_MnwHaGB?pid=ImgDet&rs=1">
-  <style>
-    html {
-      min-height: 100%;
-      overflow: hidden;
-    }
 
-    body {
-      height: calc(100vh);
-      color: rgba(255, 255, 255, .75);
-      font-family: 'Anonymous Pro', monospace;
-      background: linear-gradient(-45deg, rgb(25,25,25), rgb(25,25,25), rgb(25,25,25), rgb(50,50,50), rgb(25,25,25),rgb(25,25,25),rgb(25,25,25));
-      /*background-size: 300%;
+  <head>
+    <title>DapperPixelguy</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anonymous+Pro">
+    <link rel="icon" type="image/png" href="https://th.bing.com/th/id/OIP.vjJNW2lb4IlHMuTgLo_MnwHaGB?pid=ImgDet&rs=1">
+    <style>
+      html {
+        min-height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        height: calc(100vh);
+        color: rgba(255, 255, 255, .75);
+        font-family: 'Anonymous Pro', monospace;
+        background: linear-gradient(-45deg, rgb(25, 25, 25), rgb(25, 25, 25), rgb(25, 25, 25), rgb(50, 50, 50), rgb(25, 25, 25), rgb(25, 25, 25), rgb(25, 25, 25));
+        /*background-size: 300%;
       animation: gradient 20s linear infinite;*/
-    }
-    
-    @keyframes gradient {
-	0% {background-position: 115% 50%;}
-	100% {background-position: -15% 50%;}
-    }
-    
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
+      }
 
-    #IntroText {
-      position: absolute;
-      overflow-x: hidden;
-      min-height: 20em;
-      min-width: 0em;
-      top: 50%;
-      left: 50%;
-      border: 1px solid rgb(54, 57, 62);
-      border-radius: 10px;
-      margin: auto;
-      width: 0em; /* 60em default */
-      height: 15em;
-      max-width: 101%;
-      background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
-      transform: translate(-50%, -50%);
-      display: block;
-      transition: width 0s;
-      opacity: 0;
-    }
+      @keyframes gradient {
+        0% {
+          background-position: 115% 50%;
+        }
 
-    #IntroText.clicked {
-      width: 60em;
-    }
-    #reveal-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 5px;
-      height: 3em;
-      width: 9em;
-      font-size: 2em;
-      background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
-      color: rgba(120, 120, 120, 0.5);
-      font-weight: bold;
-      text-shadow: 0 2px rgb(200, 200, 200);
-      z-index: 1;
-      display: none;
-    }
-    #Username {
-      position: relative;
-      margin: 0 auto;
-      text-align: center;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid rgba(255, 255, 255, .75);
-      border-right-color: transparent;
-      line-height: 1.1;
-      top: 1.1em;
-      left: 50%;
-      transform: translate(-50%);
-      font-size: 4em;
-      opacity: 0;
-      transition: opacity 1s 1.5s;
-    }
-    #Credit{
-	position: absolute;
-	bottom: 0.1em;
-	right: 1em;
-    	/*border: 1px solid rgba(255,255,255,.75); 
+        100% {
+          background-position: -15% 50%;
+        }
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #IntroText {
+        position: absolute;
+        overflow-x: hidden;
+        min-height: 20em;
+        min-width: 0em;
+        top: 50%;
+        left: 50%;
+        border: 1px solid rgb(54, 57, 62);
+        border-radius: 10px;
+        margin: auto;
+        width: 0em;
+        /* 60em default */
+        height: 15em;
+        max-width: 101%;
+        background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        transform: translate(-50%, -50%);
+        display: block;
+        transition: width 0s;
+        opacity: 0;
+      }
+
+      #IntroText.clicked {
+        width: 60em;
+      }
+
+      #reveal-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        height: 3em;
+        width: 9em;
+        font-size: 2em;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(120, 120, 120, 0.5);
+        font-weight: bold;
+        text-shadow: 0 2px rgb(200, 200, 200);
+        z-index: 1;
+        display: none;
+      }
+
+      #Username {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid rgba(255, 255, 255, .75);
+        border-right-color: transparent;
+        line-height: 1.1;
+        top: 1.1em;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 4em;
+        opacity: 0;
+        transition: opacity 1s;
+      }
+
+      #Credit {
+        position: absolute;
+        bottom: 0.1em;
+        right: 1em;
+        /*border: 1px solid rgba(255,255,255,.75); 
     	box-sizing: border-box; 
    	padding-left: 3px; 
     padding-right: 3px;
     border-radius: 3px; */
-    font-size: 80%
-	    
-    }
-
-    #Username.clicked {
-      opacity: 1;
-    }
-
-    #social-Links {
-      width: 38.5em;
-      position: relative;
-      top: 4em;
-      height: 3em;
-      margin: 0 auto;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      opacity: 0;
-      transition: opacity 1s 1.7s;
-    }
-
-    #social-Links.clicked {
-      opacity: 1;
-    }
-
-    #social-Links a {
-      transition: background-color 0.45s, color 0.45s;
-      color: rgba(255, 255, 255, .75);
-      border-radius: 5px;
-    }
-
-    #social-Links a:hover {
-      background-color: rgba(255, 255, 255, .75);
-      color: rgb(25, 25, 25);
-    }
-
-    /* Animation */
-    .anim-typewriter {
-      animation: typewriter 1.7s steps(14) 1s 1 normal both,
-        blinkTextCursor 500ms steps(44) 10 normal;
-    }
-
-    @keyframes typewriter {
-      from {
-        width: 0;
+        font-size: 80%
       }
 
-      to {
-        width: 7.62em;
-      }
-    }
-
-    @keyframes blinkTextCursor {
-      from {
-        border-right-color: rgba(255, 255, 255, .75);
+      #Username.clicked {
+        opacity: 1;
       }
 
-      to {
-        border-right-color: transparent;
+      #social-Links {
+        width: 38.5em;
+        position: relative;
+        top: 4em;
+        height: 3em;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        opacity: 0;
+        transition: opacity 1s 0.2;
       }
-    }
-	    #IntroText.full-width {
+
+      #social-Links.clicked {
+        opacity: 1;
+      }
+
+      #social-Links a {
+        transition: background-color 0.45s, color 0.45s;
+        color: rgba(255, 255, 255, .75);
+        border-radius: 5px;
+      }
+
+      #social-Links a:hover {
+        background-color: rgba(255, 255, 255, .75);
+        color: rgb(25, 25, 25);
+      }
+
+      /* Animation */
+      .anim-typewriter {
+        animation: typewriter 1.7s steps(14) 1s 1 normal both,
+          blinkTextCursor 500ms steps(44) 10 normal;
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 7.62em;
+        }
+      }
+
+      @keyframes blinkTextCursor {
+        from {
+          border-right-color: rgba(255, 255, 255, .75);
+        }
+
+        to {
+          border-right-color: transparent;
+        }
+      }
+
+      #IntroText.full-width {
         height: 100%;
         border: 0px;
         border-radius: 0px;
@@ -169,7 +178,7 @@ This allows it to not snap when there is free space on the screen.
         left: 0em;
         transform: translate(0, 0);
         min-width: 0em;
-        }
+      }
 
       #IntroText.full-width #Username {
         position: absolute;
@@ -190,136 +199,142 @@ This allows it to not snap when there is free space on the screen.
       #gradient-top.full-width {
         height: 0vh;
       }
-      
-      #IntroText.mobile{
-	      height: 100%;
-	      width: 100%;
-	      border: 0px;
+
+      #IntroText.mobile {
+        height: 100%;
+        width: 100%;
+        border: 0px;
         border-radius: 0px;
         top: 0em;
         left: 0em;
         transform: translate(0, 0);
         min-width: 0em;
-	      font-size: 150%;
-	      transition: width 0s;
-	     }
-       
-       #IntroText.mobile #Username{
-	      position: absolute;
+        font-size: 150%;
+        transition: width 0s;
+      }
+
+      #IntroText.mobile #Username {
+        position: absolute;
         top: 0em;
         top: 40%;
         left: 50%;
         transform: translate(-50%);
-	     }
-       
-       #IntroText.full-width #mobile {
+      }
+
+      #IntroText.mobile #social-Links {
         position: absolute;
         top: calc(40% + 3em);
         left: 50%;
         transform: translate(-50%);
         width: 31em;
       }
-  </style>
-</head>
 
-<body>
+    </style>
+  </head>
 
-  <header id="gradient-top"></header>
-  <button id='reveal-button' onclick='revealPage()'>Enter</button>
-  <div id="IntroText">
-    <h1 id="Username">DapperPixelguy</h1>
-    <!-- Your content here -->
-    <div id='social-Links'>
-      <div style='position: relative;'>
-        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
-        <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
+  <body>
+
+    <header id="gradient-top"></header>
+    <button id='reveal-button' onclick='revealPage()'>Enter</button>
+    <div id="IntroText">
+      <h1 id="Username">DapperPixelguy</h1>
+      <!-- Your content here -->
+      <div id='social-Links'>
+        <div style='position: relative;'>
+          <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+          <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
+        </div>
+        <div style='position: relative'>
+          <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+          <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
+        </div>
+        <div style='position: relative'>
+          <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+          <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
+        </div>
       </div>
-      <div style='position: relative'>
-        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
-        <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
-      </div>
-      <div style='position: relative'>
-        <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
-        <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
-      </div>
+
     </div>
+    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
 
-  </div>
-  <p id='Credit'>[DapperPixelguy MMXXIII]</p>
+    <script>
+      var y
+      var introText = document.getElementById('IntroText');
+      var gradTop = document.getElementById('gradient-top');
+      // Function to check and apply the class based on div width
+      function checkDivWidth() {
+        let details = navigator.userAgent
+        let regexp = /android|iphone|kindle|ipad/i
+        let isMobileDevice = regexp.test(details)
 
-  <script>
-  var y 
-  var introText = document.getElementById('IntroText');
-  var gradTop = document.getElementById('gradient-top');
-    // Function to check and apply the class based on div width
-    function checkDivWidth() {
-    	let details = navigator.userAgent
-     	let regexp = /android|iphone|kindle|ipad/i
-      	let isMobileDevice = regexp.test(details)
-      
-      if (isMobileDevice){
-        introText.classList.add('mobile');
-        gradTop.classList.add('full-width');
+        if (isMobileDevice) {
+          introText.classList.add('mobile');
+          gradTop.classList.add('full-width');
+        } else {
+          //var y = document.getElementById('reveal-button');
+          if (introText.offsetWidth <= 722) {
+            introText.classList.add('full-width');
+            gradTop.classList.add('full-width');
+          } else {
+            introText.classList.remove('full-width');
+            gradTop.classList.remove('full-width');
+          }
+        }
       }
-      else{
-      //var y = document.getElementById('reveal-button');
-      if (introText.offsetWidth <= 722) {
-        introText.classList.add('full-width');
-        gradTop.classList.add('full-width');
-      } else {
-        introText.classList.remove('full-width');
-        gradTop.classList.remove('full-width');
-      }
-   }
- }
 
-    // Run the function on page load and resize
-    window.addEventListener('load', function(){
-    	y = document.getElementById('reveal-button')
-    })
-  </script>
- 
- <script>
-   var introText = document.getElementById('IntroText');
-   var y = document.getElementById("reveal-button")
-   var z = document.getElementById("Username")
-   var socialLinks = document.getElementById("social-Links")
-    function revealPage() {
-    	let details = navigator.userAgent
-     	let regexp = /android|iphone|kindle|ipad/i
-      let isMobileDevice = regexp.test(details)
-      
-      if (!isMobileDevice){
-				introText.style.transition = 'width 1.6s'
-        setTimeout(() => {
-        		introText.style.overflowX = 'auto';
-      	}, 2100)
-      	setTimeout((checkDivWidth), 1601)
-      	setTimeout(()=>{
-    				window.addEventListener('load', checkDivWidth);
-    				window.addEventListener('resize', checkDivWidth);
-      	console.log('Run!')
-    }, 1601)
-      }else{
-      checkDivWidth()
-      }
-      
-      introText.style.opacity = '1'
-      introText.classList.add("clicked")
-      z.classList.add("clicked")
-      socialLinks.classList.add("clicked")
-      y.style.display = 'none'
+      // Run the function on page load and resize
+      window.addEventListener('load', function() {
+        y = document.getElementById('reveal-button')
+      })
 
-      
-    }
-  </script>
-  
-  <script>
- window.addEventListener('load', function() {
-  var y = document.getElementById("reveal-button");
-  y.style.display = 'block';
-});
-  </script>
-</body>
+    </script>
+
+    <script>
+      var introText = document.getElementById('IntroText');
+      var y = document.getElementById("reveal-button")
+      var z = document.getElementById("Username")
+      var socialLinks = document.getElementById("social-Links")
+
+      function revealPage() {
+        let details = navigator.userAgent
+        let regexp = /android|iphone|kindle|ipad/i
+        let isMobileDevice = regexp.test(details)
+
+        if (!isMobileDevice) {
+          introText.style.transition = 'width 1.6s'
+          z.style.transition = 'opacity 1s 1.5s'
+          socialLinks.style.transition = 'opacity 1s 1.7s'
+          setTimeout(() => {
+            introText.style.overflowX = 'auto';
+          }, 2100)
+          setTimeout((checkDivWidth), 1601)
+          setTimeout(() => {
+            window.addEventListener('load', checkDivWidth);
+            window.addEventListener('resize', checkDivWidth);
+            console.log('Run!')
+          }, 1601)
+        } else {
+          checkDivWidth()
+        }
+
+        introText.style.opacity = '1'
+        introText.classList.add("clicked")
+        z.classList.add("clicked")
+        socialLinks.classList.add("clicked")
+        y.style.display = 'none'
+
+
+      }
+
+    </script>
+
+    <script>
+      window.addEventListener('load', function() {
+        var y = document.getElementById("reveal-button");
+        y.style.display = 'block';
+      });
+
+    </script>
+  </body>
 
 </html>

@@ -104,11 +104,13 @@ This allows it to not snap when there is free space on the screen.
         position: absolute;
         bottom: 0.1em;
         right: 1em;
-        /*border: 1px solid rgba(255,255,255,.75); 
-    	box-sizing: border-box; 
-   	padding-left: 3px; 
-    padding-right: 3px;
-    border-radius: 3px; */
+        font-size: 80%
+      }
+
+      #Device {
+        position: absolute;
+        bottom: 0.1em;
+        left: 1em;
         font-size: 80%
       }
 
@@ -256,6 +258,7 @@ This allows it to not snap when there is free space on the screen.
 
     </div>
     <p id='Credit'>[DapperPixelguy MMXXIII]</p>
+    <p id='Device'>[Unknown]</p>
 
     <script>
       var y
@@ -312,8 +315,8 @@ This allows it to not snap when there is free space on the screen.
           }, 1601)
         } else {
           introText.style.transition = 'width 0s'
-          z.style.transition = 'opacity 1s 0.3s'
-          socialLinks.style.transition = 'opacity 1s 0.6s'
+          z.style.transition = 'opacity 1s 0.3'
+          socialLinks.style.transition = 'opacity 1s 0.6'
           checkDivWidth()
         }
 
@@ -330,8 +333,18 @@ This allows it to not snap when there is free space on the screen.
 
     <script>
       window.addEventListener('load', function() {
+        var x = document.getElementById("Device");
         var y = document.getElementById("reveal-button");
         y.style.display = 'block';
+        let details = navigator.userAgent
+        let regexp = /android|iphone|kindle|ipad/i
+        let isMobileDevice = regexp.test(details)
+
+        if (isMobileDevice) {
+          x.innerText = 'Viewing on: [Mobile]'
+        } else {
+          x.innerText = 'Viewing on: [Desktop]'
+        }
       });
 
     </script>

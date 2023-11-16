@@ -210,7 +210,7 @@ This allows it to not snap when there is free space on the screen.
 
   <header id="gradient-top"></header>
   <button id='reveal-button' onclick='revealPage()'>Enter</button>
-  <div id="IntroText" class='full-width'>
+  <div id="IntroText">
     <h1 id="Username">DapperPixelguy</h1>
     <!-- Your content here -->
     <div id='social-Links'>
@@ -242,7 +242,7 @@ This allows it to not snap when there is free space on the screen.
       	let isMobileDevice = regexp.test(details)
       
       if (isMobileDevice){
-	introText.style.transition='width 0s';
+				introText.style.transition='width 0s';
         introText.classList.add('mobile');
         gradTop.classList.add('full-width');
       }

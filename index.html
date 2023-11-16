@@ -161,7 +161,7 @@ This allows it to not snap when there is free space on the screen.
         border-right-color: transparent;
       }
     }
-	#IntroText.full-width {
+	    #IntroText.full-width {
         height: 100%;
         border: 0px;
         border-radius: 0px;
@@ -170,19 +170,6 @@ This allows it to not snap when there is free space on the screen.
         transform: translate(0, 0);
         min-width: 0em;
         }
-        
-	#IntroText.mobile{
-	height: 100%;
-	width: 100%;
-	border: 0px;
-        border-radius: 0px;
-        top: 0em;
-        left: 0em;
-        transform: translate(0, 0);
-        min-width: 0em;
-	font-size: 150%;
-	transition: width 0s;
-	}
 
       #IntroText.full-width #Username {
         position: absolute;
@@ -202,6 +189,35 @@ This allows it to not snap when there is free space on the screen.
 
       #gradient-top.full-width {
         height: 0vh;
+      }
+      
+      #IntroText.mobile{
+	      height: 100%;
+	      width: 100%;
+	      border: 0px;
+        border-radius: 0px;
+        top: 0em;
+        left: 0em;
+        transform: translate(0, 0);
+        min-width: 0em;
+	      font-size: 150%;
+	      transition: width 0s;
+	     }
+       
+       #IntroText.mobile #Username{
+	      position: absolute;
+        top: 0em;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+	     }
+       
+       #IntroText.full-width #mobile {
+        position: absolute;
+        top: calc(40% + 3em);
+        left: 50%;
+        transform: translate(-50%);
+        width: 31em;
       }
   </style>
 </head>

@@ -121,7 +121,7 @@ This allows it to not snap when there is free space on the screen.
       #social-Links {
         width: 38.5em;
         position: relative;
-        top: 4em;
+        top: 7em;
         height: 3em;
         margin: 0 auto;
         display: flex;
@@ -136,13 +136,14 @@ This allows it to not snap when there is free space on the screen.
       }
 
       #social-Links a {
-        transition: background-color 0.45s, color 0.45s;
+        transition: background-color 0.45s, color .3s ease-in-out, box-shadow .3s ease-in-out;
+        box-shadow: inset 0 0 0 0 rgba(200, 200, 200, .75);
         color: rgba(255, 255, 255, .75);
-        border-radius: 5px;
       }
 
       #social-Links a:hover {
-        background-color: rgba(255, 255, 255, .75);
+        /*background-color: rgba(255, 255, 255, .75);*/
+        box-shadow: inset 150px 0 0 0 rgba(255, 255, 255, .75);
         color: rgb(25, 25, 25);
       }
 
@@ -192,7 +193,7 @@ This allows it to not snap when there is free space on the screen.
 
       #IntroText.full-width #social-Links {
         position: absolute;
-        top: calc(40% + 3em);
+        top: calc(40% + 6em);
         left: 50%;
         transform: translate(-50%);
         width: 31em;
@@ -225,7 +226,7 @@ This allows it to not snap when there is free space on the screen.
 
       #IntroText.mobile #social-Links {
         position: absolute;
-        top: calc(40% + 3em);
+        top: calc(40% + 6em);
         left: 50%;
         transform: translate(-50%);
         width: 31em;
@@ -243,15 +244,15 @@ This allows it to not snap when there is free space on the screen.
       <!-- Your content here -->
       <div id='social-Links'>
         <div style='position: relative;'>
-          <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
           <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
         </div>
-        <div style='position: relative'>
-          <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+        <div style='position: relative;'>
+          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
           <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
         </div>
-        <div style='position: relative'>
-          <a style='position: relative; top: 2em; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+        <div style='position: relative;'>
+          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
           <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
         </div>
       </div>

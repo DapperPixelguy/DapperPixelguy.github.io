@@ -113,7 +113,13 @@ This allows it to not snap when there is free space on the screen.
         left: 1em;
         font-size: 80%
       }
-
+      #Time {
+        position: absolute;
+        bottom: 0.1em;
+        left: 50%;
+        font-size: 80%;
+        transform: translate(-50%)
+      }
       #Username.clicked {
         opacity: 1;
       }
@@ -236,7 +242,8 @@ This allows it to not snap when there is free space on the screen.
   </head>
 
   <body>
-
+  
+    <body onload="startTime()">
     <header id="gradient-top"></header>
     <button id='reveal-button' onclick='revealPage()'>Enter</button>
     <div id="IntroText">
@@ -260,6 +267,7 @@ This allows it to not snap when there is free space on the screen.
     </div>
     <p id='Credit'>[DapperPixelguy MMXXIII]</p>
     <p id='Device'>[Unknown]</p>
+    <p id='Time'></p>
 
     <script>
       var y
@@ -300,6 +308,7 @@ This allows it to not snap when there is free space on the screen.
       var socialLinks = document.getElementById("social-Links")
       var device = document.getElementById("Device")
       var credit = document.getElementById("Credit")
+      var time = document.getElementById('Time')
 
       function revealPage() {
         let details = navigator.userAgent
@@ -347,12 +356,30 @@ This allows it to not snap when there is free space on the screen.
           x.innerText = 'Viewing on: [Mobile]'
           device.style.fontSize = '150%'
           credit.style.fontSize = '150%'
+          time.style.fontsize = '150%'
         } else {
           x.innerText = 'Viewing on: [Desktop]'
         }
       });
 
     </script>
+    <script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('Time').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
   </body>
 
 </html>

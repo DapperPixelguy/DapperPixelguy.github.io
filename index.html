@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-  <!-- 
-Try and allow #IntroText to be scaled down past 60em, but apply fullwidth at something like 45em width instead? 
-This allows it to not snap when there is free space on the screen.
+<!-- 
+Place #credit, #device, #time into their own (#footer?) div that has styling applied, maybe a bar to differentiate them from #IntroText?
+Stop #IntroText overlapping with this bar
 -->
 
   <head>
@@ -65,6 +65,14 @@ This allows it to not snap when there is free space on the screen.
       #IntroText.clicked {
         width: 60em;
       }
+      #v1{
+        border-left: 6px solid green;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        margin-left: -3px;
+        top: 0;
+      }
 
       #reveal-button {
         position: absolute;
@@ -99,21 +107,33 @@ This allows it to not snap when there is free space on the screen.
         opacity: 0;
         transition: opacity 1s 1.5s;
       }
-
-      #Credit {
+      #footer{
         position: absolute;
         bottom: 0.1em;
+        width: 100%;
+        background: rgba(25,25,25,.75);
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
+
+      #Credit {
+        position: relative;
         right: 1em;
-        font-size: 80%
+        font-size: 80%;
       }
 
       #Device {
-        position: absolute;
-        bottom: 0.1em;
         left: 1em;
-        font-size: 80%
+        position: relative;
+        font-size: 80%;
       }
-
+      #Time {
+        position: absolute;
+        font-size: 80%;
+        left: 50%;
+        transform: translate(-50%);
+      }
       #Username.clicked {
         opacity: 1;
       }
@@ -236,35 +256,49 @@ This allows it to not snap when there is free space on the screen.
   </head>
 
   <body>
-
+  <div id='v1' style='z-index: 2'>
+  
+  </div>
+  
+    <body onload="startTime()">
     <header id="gradient-top"></header>
     <button id='reveal-button' onclick='revealPage()'>Enter</button>
     <div id="IntroText">
       <h1 id="Username">DapperPixelguy</h1>
       <!-- Your content here -->
       <div id='social-Links'>
-        <div style='position: relative;'>
-          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+        <div style='position: static; display: flex; flex-direction: column; row-gap: 30px'>
+          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none;' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none;' href='https://discord.com/users/639945209446400020' target='_blank'>[Twitter]</a>
           <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
         </div>
-        <div style='position: relative;'>
-          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+        <div style='position: static; display: flex; flex-direction: column; row-gap: 30px'>
+          <a style='position: absolute; left: 50%; transform: translate(-50%); text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
           <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
         </div>
-        <div style='position: relative;'>
-          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+        <div style='position: static; display: flex; flex-direction: column; row-gap: 30px'>
+          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
           <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
         </div>
       </div>
 
     </div>
-    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
+    <div id='footer'>
     <p id='Device'>[Unknown]</p>
+    <p id='Time'></p>
+    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
+    </div>
 
     <script>
       var y
       var introText = document.getElementById('IntroText');
       var gradTop = document.getElementById('gradient-top');
+      var y = document.getElementById("reveal-button")
+      var z = document.getElementById("Username")
+      var socialLinks = document.getElementById("social-Links")
+      var device = document.getElementById("Device")
+      var credit = document.getElementById("Credit")
+      var time = document.getElementById('Time')
       // Function to check and apply the class based on div width
       function checkDivWidth() {
         let details = navigator.userAgent
@@ -294,13 +328,6 @@ This allows it to not snap when there is free space on the screen.
     </script>
 
     <script>
-      var introText = document.getElementById('IntroText');
-      var y = document.getElementById("reveal-button")
-      var z = document.getElementById("Username")
-      var socialLinks = document.getElementById("social-Links")
-      var device = document.getElementById("Device")
-      var credit = document.getElementById("Credit")
-
       function revealPage() {
         let details = navigator.userAgent
         let regexp = /android|iphone|kindle|ipad/i
@@ -336,23 +363,39 @@ This allows it to not snap when there is free space on the screen.
 
     <script>
       window.addEventListener('load', function() {
-        var x = document.getElementById("Device");
-        var y = document.getElementById("reveal-button");
         y.style.display = 'block';
         let details = navigator.userAgent
         let regexp = /android|iphone|kindle|ipad/i
         let isMobileDevice = regexp.test(details)
 
         if (isMobileDevice) {
-          x.innerText = 'Viewing on: [Mobile]'
+          device.innerText = 'Viewing on: [Mobile]'
           device.style.fontSize = '150%'
           credit.style.fontSize = '150%'
+          time.style.fontSize = '150%'
         } else {
-          x.innerText = 'Viewing on: [Desktop]'
+          device.innerText = 'Viewing on: [Desktop]'
         }
       });
 
     </script>
+    <script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('Time').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
   </body>
 
 </html>

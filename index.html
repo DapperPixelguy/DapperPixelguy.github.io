@@ -65,14 +65,6 @@ Stop #IntroText overlapping with this bar
       #IntroText.clicked {
         width: 60em;
       }
-      #v1{
-        border-left: 6px solid green;
-        height: 100%;
-        position: absolute;
-        left: 50%;
-        margin-left: -3px;
-        top: 0;
-      }
 
       #reveal-button {
         position: absolute;
@@ -107,32 +99,26 @@ Stop #IntroText overlapping with this bar
         opacity: 0;
         transition: opacity 1s 1.5s;
       }
-      #footer{
-        position: absolute;
-        bottom: 0.1em;
-        width: 100%;
-        background: rgba(25,25,25,.75);
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-      }
 
       #Credit {
-        position: relative;
+        position: absolute;
+        bottom: 0.1em;
         right: 1em;
-        font-size: 80%;
+        font-size: 80%
       }
 
       #Device {
+        position: absolute;
+        bottom: 0.1em;
         left: 1em;
-        position: relative;
-        font-size: 80%;
+        font-size: 80%
       }
       #Time {
         position: absolute;
-        font-size: 80%;
+        bottom: 0.1em;
         left: 50%;
-        transform: translate(-50%);
+        font-size: 80%;
+        transform: translate(-50%)
       }
       #Username.clicked {
         opacity: 1;
@@ -251,15 +237,22 @@ Stop #IntroText overlapping with this bar
         transform: translate(-50%);
         width: 31em;
       }
+       #v1{
+        border-left: 6px solid green;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        margin-left: -3px;
+        top: 0;
+      }
 
     </style>
   </head>
 
   <body>
-  <div id='v1' style='z-index: 2'>
-  
-  </div>
-  
+    <div id='v1' style='z-index:200'>
+    
+    </div>
     <body onload="startTime()">
     <header id="gradient-top"></header>
     <button id='reveal-button' onclick='revealPage()'>Enter</button>
@@ -267,27 +260,25 @@ Stop #IntroText overlapping with this bar
       <h1 id="Username">DapperPixelguy</h1>
       <!-- Your content here -->
       <div id='social-Links'>
-        <div style='position: static; display: flex; flex-direction: column; row-gap: 30px'>
-          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none;' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
-          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none;' href='https://discord.com/users/639945209446400020' target='_blank'>[Twitter]</a>
+        <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static'>
+          <a style='position: relative; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
           <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
         </div>
-        <div style='position: static; display: flex; flex-direction: column; row-gap: 30px'>
-          <a style='position: absolute; left: 50%; transform: translate(-50%); text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+        <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: absolute; left: 50%; transform: translate(-50%)'>
+          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[TestLink]</a>
           <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
         </div>
-        <div style='position: static; display: flex; flex-direction: column; row-gap: 30px'>
-          <a style='position: static; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+        <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static'>
+          <a style='position: relative; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
           <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
         </div>
       </div>
 
     </div>
-    <div id='footer'>
+    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
     <p id='Device'>[Unknown]</p>
     <p id='Time'></p>
-    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
-    </div>
 
     <script>
       var y

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
+  <!-- 
 Place #credit, #device, #time into their own (#footer?) div that has styling applied, maybe a bar to differentiate them from #IntroText?
 Stop #IntroText overlapping with this bar
 -->
@@ -102,24 +102,23 @@ Stop #IntroText overlapping with this bar
 
       #Credit {
         position: absolute;
-        bottom: 0.1em;
         right: 1em;
         font-size: 80%
       }
 
       #Device {
         position: absolute;
-        bottom: 0.1em;
         left: 1em;
         font-size: 80%
       }
+
       #Time {
         position: absolute;
-        bottom: 0.1em;
         left: 50%;
         font-size: 80%;
         transform: translate(-50%)
       }
+
       #Username.clicked {
         opacity: 1;
       }
@@ -237,7 +236,8 @@ Stop #IntroText overlapping with this bar
         transform: translate(-50%);
         width: 31em;
       }
-       #v1{
+
+      #v1 {
         border-left: 6px solid green;
         height: 100%;
         position: absolute;
@@ -246,151 +246,165 @@ Stop #IntroText overlapping with this bar
         top: 0;
       }
 
+      #footer {
+        position: absolute;
+        width: 100%;
+        height: 2.3em;
+        transform: translate(0,-0.3em);
+        bottom: 0;
+        background: rgba(25, 25, 25,.75) !important ;
+      }
+
     </style>
   </head>
 
   <body>
-    <div id='v1' style='z-index:200'>
-    
-    </div>
+  <!--<div id='v1' style='z-index:200'>
+
+    </div> -->
+
     <body onload="startTime()">
-    <header id="gradient-top"></header>
-    <button id='reveal-button' onclick='revealPage()'>Enter</button>
-    <div id="IntroText">
-      <h1 id="Username">DapperPixelguy</h1>
-      <!-- Your content here -->
-      <div id='social-Links'>
-        
-        <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
-        
-          <a style='position: static; font-size: 1.5em;  text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
-        
-          <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[X]</a>          
+      <header id="gradient-top"></header>
+      <button id='reveal-button' onclick='revealPage()'>Enter</button>
+      <div id="IntroText">
+        <h1 id="Username">DapperPixelguy</h1>
+        <!-- Your content here -->
+        <div id='social-Links'>
 
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
+
+            <a style='position: static; font-size: 1.5em;  text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[X]</a>
+
+          </div>
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: absolute; left: 50%; transform: translate(-50%); align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[TestLink]</a>
+            <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
+          </div>
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
+            <a style='position: relative; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+            <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
+          </div>
         </div>
-        <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: absolute; left: 50%; transform: translate(-50%); align-items: center'>
-          <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
-          <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[TestLink]</a>
-          <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
-        </div>
-        <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
-          <a style='position: relative; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
-          <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
-        </div>
+
       </div>
+      <div id='footer'>
+        <p id='Credit'>[DapperPixelguy MMXXIII]</p>
+        <p id='Device'>[Unknown]</p>
+        <p id='Time'></p>
+      </div>
+      <script>
+        var y
+        var introText = document.getElementById('IntroText');
+        var gradTop = document.getElementById('gradient-top');
+        var y = document.getElementById("reveal-button")
+        var z = document.getElementById("Username")
+        var socialLinks = document.getElementById("social-Links")
+        var device = document.getElementById("Device")
+        var credit = document.getElementById("Credit")
+        var time = document.getElementById('Time')
+        // Function to check and apply the class based on div width
+        function checkDivWidth() {
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
 
-    </div>
-    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
-    <p id='Device'>[Unknown]</p>
-    <p id='Time'></p>
-
-    <script>
-      var y
-      var introText = document.getElementById('IntroText');
-      var gradTop = document.getElementById('gradient-top');
-      var y = document.getElementById("reveal-button")
-      var z = document.getElementById("Username")
-      var socialLinks = document.getElementById("social-Links")
-      var device = document.getElementById("Device")
-      var credit = document.getElementById("Credit")
-      var time = document.getElementById('Time')
-      // Function to check and apply the class based on div width
-      function checkDivWidth() {
-        let details = navigator.userAgent
-        let regexp = /android|iphone|kindle|ipad/i
-        let isMobileDevice = regexp.test(details)
-
-        if (isMobileDevice) {
-          introText.classList.add('mobile');
-          gradTop.classList.add('full-width');
-        } else {
-          //var y = document.getElementById('reveal-button');
-          if (introText.offsetWidth <= 722) {
-            introText.classList.add('full-width');
+          if (isMobileDevice) {
+            introText.classList.add('mobile');
             gradTop.classList.add('full-width');
           } else {
-            introText.classList.remove('full-width');
-            gradTop.classList.remove('full-width');
+            //var y = document.getElementById('reveal-button');
+            if (introText.offsetWidth <= 722) {
+              introText.classList.add('full-width');
+              gradTop.classList.add('full-width');
+            } else {
+              introText.classList.remove('full-width');
+              gradTop.classList.remove('full-width');
+            }
           }
         }
-      }
 
-      // Run the function on page load and resize
-      window.addEventListener('load', function() {
-        y = document.getElementById('reveal-button')
-      })
+        // Run the function on page load and resize
+        window.addEventListener('load', function() {
+          y = document.getElementById('reveal-button')
+        })
 
-    </script>
+      </script>
 
-    <script>
-      function revealPage() {
-        let details = navigator.userAgent
-        let regexp = /android|iphone|kindle|ipad/i
-        let isMobileDevice = regexp.test(details)
+      <script>
+        function revealPage() {
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
 
-        if (!isMobileDevice) {
-          setTimeout(() => {
-            introText.style.overflowX = 'auto';
-          }, 2100)
-          setTimeout((checkDivWidth), 1601)
-          setTimeout(() => {
-            window.addEventListener('load', checkDivWidth);
-            window.addEventListener('resize', checkDivWidth);
-            console.log('Run!')
-          }, 1601)
-        } else {
-          introText.style.transition = 'width 0s'
-          z.style.transition = 'opacity 1s 0.3s'
-          socialLinks.style.transition = 'opacity 1s 0.6s'
-          checkDivWidth()
+          if (!isMobileDevice) {
+            setTimeout(() => {
+              introText.style.overflowX = 'auto';
+            }, 2100)
+            setTimeout((checkDivWidth), 1601)
+            setTimeout(() => {
+              window.addEventListener('load', checkDivWidth);
+              window.addEventListener('resize', checkDivWidth);
+              console.log('Run!')
+            }, 1601)
+          } else {
+            introText.style.transition = 'width 0s'
+            z.style.transition = 'opacity 1s 0.3s'
+            socialLinks.style.transition = 'opacity 1s 0.6s'
+            checkDivWidth()
+          }
+
+          introText.style.opacity = '1'
+          introText.classList.add("clicked")
+          z.classList.add("clicked")
+          socialLinks.classList.add("clicked")
+          y.style.display = 'none'
+
+
         }
 
-        introText.style.opacity = '1'
-        introText.classList.add("clicked")
-        z.classList.add("clicked")
-        socialLinks.classList.add("clicked")
-        y.style.display = 'none'
+      </script>
 
+      <script>
+        window.addEventListener('load', function() {
+          y.style.display = 'block';
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
 
-      }
+          if (isMobileDevice) {
+            device.innerText = 'Viewing on: [Mobile]'
+            device.style.fontSize = '150%'
+            credit.style.fontSize = '150%'
+            time.style.fontSize = '150%'
+          } else {
+            device.innerText = 'Viewing on: [Desktop]'
+          }
+        });
 
-    </script>
-
-    <script>
-      window.addEventListener('load', function() {
-        y.style.display = 'block';
-        let details = navigator.userAgent
-        let regexp = /android|iphone|kindle|ipad/i
-        let isMobileDevice = regexp.test(details)
-
-        if (isMobileDevice) {
-          device.innerText = 'Viewing on: [Mobile]'
-          device.style.fontSize = '150%'
-          credit.style.fontSize = '150%'
-          time.style.fontSize = '150%'
-        } else {
-          device.innerText = 'Viewing on: [Desktop]'
+      </script>
+      <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('Time').innerHTML = h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
         }
-      });
 
-    </script>
-    <script>
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('Time').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
+        function checkTime(i) {
+          if (i < 10) {
+            i = "0" + i
+          }; // add zero in front of numbers < 10
+          return i;
+        }
 
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
-  </body>
+      </script>
+    </body>
 
 </html>

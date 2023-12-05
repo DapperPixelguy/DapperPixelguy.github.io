@@ -4,6 +4,8 @@
   <!-- 
 Place #credit, #device, #time into their own (#footer?) div that has styling applied, maybe a bar to differentiate them from #IntroText?
 Stop #IntroText overlapping with this bar
+
+FIX FULLWIDTH FOOTER
 -->
 
   <head>
@@ -252,7 +254,11 @@ Stop #IntroText overlapping with this bar
         height: 2.3em;
         transform: translate(0,-0.3em);
         bottom: 0;
-        background: rgba(25, 25, 25,.75) !important ;
+        background: rgba(25, 25, 25,.75);
+      }
+      #footer.full-width{
+        background: rgba(25, 25, 25,1);
+        bottom: -.3em;
       }
 
     </style>
@@ -305,6 +311,7 @@ Stop #IntroText overlapping with this bar
         var device = document.getElementById("Device")
         var credit = document.getElementById("Credit")
         var time = document.getElementById('Time')
+        var footer = document.getElementById('footer')
         // Function to check and apply the class based on div width
         function checkDivWidth() {
           let details = navigator.userAgent
@@ -314,14 +321,17 @@ Stop #IntroText overlapping with this bar
           if (isMobileDevice) {
             introText.classList.add('mobile');
             gradTop.classList.add('full-width');
+            footer.classList.add('full-width')
           } else {
             //var y = document.getElementById('reveal-button');
             if (introText.offsetWidth <= 722) {
               introText.classList.add('full-width');
               gradTop.classList.add('full-width');
+              footer.classList.add('full-width')
             } else {
               introText.classList.remove('full-width');
               gradTop.classList.remove('full-width');
+              footer.classList.remove('full-width')
             }
           }
         }

@@ -5,7 +5,7 @@
 Place #credit, #device, #time into their own (#footer?) div that has styling applied, maybe a bar to differentiate them from #IntroText?
 Stop #IntroText overlapping with this bar
 
-FIX FULLWIDTH FOOTER
+Make #footer a flexbox to contain #time #device #credit. Position them vertically centered, and make the height thinner to create a sleeker look
 -->
 
   <head>
@@ -251,13 +251,15 @@ FIX FULLWIDTH FOOTER
       #footer {
         position: absolute;
         width: 100%;
-        height: 2.3em;
-        transform: translate(0,-0.3em);
-        bottom: 0;
+        height: 2em;
+        bottom: 0.3em;
         background: rgba(25, 25, 25,.75);
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center
       }
       #footer.full-width{
-        background: rgba(25, 25, 25,1);
+        background: transparent;
         bottom: -.3em;
       }
 

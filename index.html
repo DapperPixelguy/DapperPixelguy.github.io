@@ -262,6 +262,13 @@ Make #footer a flexbox to contain #time #device #credit. Position them verticall
         background: transparent;
         bottom: -.3em;
       }
+      #InfoButton{
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255,255,255,.75)
+      }
 
     </style>
   </head>
@@ -274,6 +281,11 @@ Make #footer a flexbox to contain #time #device #credit. Position them verticall
     <body onload="startTime()">
       <header id="gradient-top"></header>
       <button id='reveal-button' onclick='revealPage()'>Enter</button>
+      <div id="InfoText">
+      <button id='InfoButton'>
+      <img src='https://imgur.com/NNujL60'>
+      </button>
+      </div>
       <div id="IntroText">
         <h1 id="Username">DapperPixelguy</h1>
         <!-- Your content here -->

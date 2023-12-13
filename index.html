@@ -286,16 +286,25 @@ Fix yo icon
       }
       #InfoBox{
         position: relative;
-        right: 3em;
+        right: 1em;
         top: 0.8em;
-        width: 25em;
+        width: 0em;
         height: 1.8em;
         background: white;
         border: 2px solid rgb(54, 57, 62);
         border-radius: 5px;
         background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
         color: rgba(255, 255, 255, .75);
+        transition: width 1.5s, opacity 1s;
+        opacity: 0;
+        overflow: hidden;
       }
+      #InfoBox.active{
+        width: 23em;
+        opacity: 1;
+        transition: width 1.5s, opacity 1s;
+      }
+      
 
     </style>
   </head>
@@ -310,11 +319,11 @@ Fix yo icon
       <button id='reveal-button' onclick='revealPage()'>Enter</button>
       
       <div id="InfoText">
-        <button id='InfoButton'>
-          <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75;'>
+        <button id='InfoButton' onclick='showInfo()'>
+          <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75'>
         </button>
         <div id="InfoBox">
-          <p style="position: relative; left: 5px; bottom:40%; font-size: 80%">
+          <p style="position: relative; left: 5px; bottom:35%; font-size: 80%;">
           Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
           </p>
         </div>
@@ -350,7 +359,6 @@ Fix yo icon
         <p id='Time'></p>
       </div>
       <script>
-        var y
         var introText = document.getElementById('IntroText');
         var gradTop = document.getElementById('gradient-top');
         var y = document.getElementById("reveal-button")
@@ -462,6 +470,17 @@ Fix yo icon
           return i;
         }
 
+      </script>
+      <script>
+      	function showInfo(){
+        	var infoBox = document.getElementById('InfoBox')
+        	if (infoBox.classList.contains('active')){
+        		infoBox.classList.remove('active')
+        	}
+        	else{
+        		infoBox.classList.add('active')
+       	 }
+      	}
       </script>
     </body>
 

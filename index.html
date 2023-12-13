@@ -255,39 +255,71 @@ Fix yo icon
         width: 100%;
         height: 2em;
         bottom: 0.3em;
-        background: rgba(25, 25, 25,.75);
+        background: rgba(25, 25, 25, .75);
         display: flex;
         flex-flow: row nowrap;
         align-items: center
       }
-      #footer.full-width{
+
+      #footer.full-width {
         background: transparent;
         bottom: -.3em;
       }
-      #InfoButton{
-        position: absolute;
-        top: 1em;
+      #InfoText{
+        position: relative;
+        float: right;
         right: 1em;
+      }
+
+      #InfoButton {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        top: 1em;
+        float: right;
         background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
-        color: rgba(255,255,255,.75);
+        color: rgba(255, 255, 255, .75);
+        height: 2.5em;
+        width: 2.5em;
+      }
+      #InfoBox{
+        position: relative;
+        right: 3em;
+        top: 0.8em;
+        width: 25em;
+        height: 1.8em;
+        background: white;
+        border: 2px solid rgb(54, 57, 62);
+        border-radius: 5px;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
       }
 
     </style>
   </head>
 
   <body>
-  <!--<div id='v1' style='z-index:200'>
+    <!--<div id='v1' style='z-index:200'>
 
     </div> -->
 
     <body onload="startTime()">
       <header id="gradient-top"></header>
       <button id='reveal-button' onclick='revealPage()'>Enter</button>
+      
       <div id="InfoText">
-      <button id='InfoButton'>
-      <img src='https://i.imgur.com/NNujL60.png' style='scale: 1; height: 1.5em; width: 1.5eml; opacity: .75'>
-      </button>
+        <button id='InfoButton'>
+          <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75;'>
+        </button>
+        <div id="InfoBox">
+          <p style="position: relative; left: 5px; bottom:40%; font-size: 80%">
+          Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
+          </p>
+        </div>
       </div>
+      
       <div id="IntroText">
         <h1 id="Username">DapperPixelguy</h1>
         <!-- Your content here -->

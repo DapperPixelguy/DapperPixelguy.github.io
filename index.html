@@ -8,11 +8,7 @@ Stop #IntroText overlapping with this bar
 Make #footer a flexbox to contain #time #device #credit. Position them vertically centered, and make the height thinner to create a sleeker look
 
 View counter
-Custom domain
-Invert the colours of InfoButton when InfoBox is displayed (give it a
-n active class, or give InfoText an active class that described styling for child elements)
-
-Maybe link twitter as X, but have it change to twitter once hovered (trolling)
+Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
 -->
 
   <head>
@@ -67,7 +63,7 @@ Maybe link twitter as X, but have it change to twitter once hovered (trolling)
         background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
         transform: translate(-50%, -50%);
         display: block;
-        transition: width 1.6s;
+        transition: width 1.6s ease;
         opacity: 0;
       }
 
@@ -270,7 +266,8 @@ Maybe link twitter as X, but have it change to twitter once hovered (trolling)
         background: transparent;
         bottom: -.3em;
       }
-      #InfoText{
+
+      #InfoText {
         position: relative;
         float: right;
         right: 1em;
@@ -289,7 +286,12 @@ Maybe link twitter as X, but have it change to twitter once hovered (trolling)
         height: 2.5em;
         width: 2.5em;
       }
-      #InfoBox{
+
+      #InfoButton.active {
+        filter: invert(1)
+      }
+
+      #InfoBox {
         position: relative;
         right: 1em;
         top: 0.8em;
@@ -304,12 +306,12 @@ Maybe link twitter as X, but have it change to twitter once hovered (trolling)
         opacity: 0;
         overflow: hidden;
       }
-      #InfoBox.active{
+
+      #InfoBox.active {
         width: 23em;
         opacity: 1;
         transition: width 1.5s, opacity 1s;
       }
-      
 
     </style>
   </head>
@@ -322,37 +324,36 @@ Maybe link twitter as X, but have it change to twitter once hovered (trolling)
     <body onload="startTime()">
       <header id="gradient-top"></header>
       <button id='reveal-button' onclick='revealPage()'>Enter</button>
-      
+
       <div id="InfoText">
         <button id='InfoButton' onclick='showInfo()'>
           <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75'>
         </button>
         <div id="InfoBox">
           <p style="position: relative; left: 5px; bottom:35%; font-size: 80%;">
-          Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
+            Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
           </p>
         </div>
       </div>
-      
+
       <div id="IntroText">
         <h1 id="Username">DapperPixelguy</h1>
         <!-- Your content here -->
         <div id='social-Links'>
 
           <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
-
-            <a style='position: static; font-size: 1.5em;  text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
-
-            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[X]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[\\\\\\\]</a>
 
           </div>
           <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: absolute; left: 50%; transform: translate(-50%); align-items: center'>
             <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
-            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[TestLink]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[|||||]</a>
             <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
           </div>
           <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
-            <a style='position: relative; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[//////]</a>
             <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
           </div>
         </div>
@@ -477,15 +478,18 @@ Maybe link twitter as X, but have it change to twitter once hovered (trolling)
 
       </script>
       <script>
-      	function showInfo(){
-        	var infoBox = document.getElementById('InfoBox')
-        	if (infoBox.classList.contains('active')){
-        		infoBox.classList.remove('active')
-        	}
-        	else{
-        		infoBox.classList.add('active')
-       	 }
-      	}
+        function showInfo() {
+          var infoBox = document.getElementById('InfoBox')
+          var infoButton = document.getElementById('InfoButton')
+          if (infoBox.classList.contains('active')) {
+            infoBox.classList.remove('active')
+            infoButton.classList.remove('active')
+          } else {
+            infoBox.classList.add('active')
+            infoButton.classList.add('active')
+          }
+        }
+
       </script>
     </body>
 

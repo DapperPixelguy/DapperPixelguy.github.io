@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
+  <!-- 
 Place #credit, #device, #time into their own (#footer?) div that has styling applied, maybe a bar to differentiate them from #IntroText?
 Stop #IntroText overlapping with this bar
+
+Make #footer a flexbox to contain #time #device #credit. Position them vertically centered, and make the height thinner to create a sleeker look
+
+View counter
+Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
 -->
 
   <head>
@@ -58,7 +63,7 @@ Stop #IntroText overlapping with this bar
         background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
         transform: translate(-50%, -50%);
         display: block;
-        transition: width 1.6s;
+        transition: width 1.6s ease;
         opacity: 0;
       }
 
@@ -102,24 +107,23 @@ Stop #IntroText overlapping with this bar
 
       #Credit {
         position: absolute;
-        bottom: 0.1em;
         right: 1em;
         font-size: 80%
       }
 
       #Device {
         position: absolute;
-        bottom: 0.1em;
         left: 1em;
         font-size: 80%
       }
+
       #Time {
         position: absolute;
-        bottom: 0.1em;
         left: 50%;
         font-size: 80%;
         transform: translate(-50%)
       }
+
       #Username.clicked {
         opacity: 1;
       }
@@ -238,144 +242,255 @@ Stop #IntroText overlapping with this bar
         width: 31em;
       }
 
+      #v1 {
+        border-left: 6px solid green;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        margin-left: -3px;
+        top: 0;
+      }
+
+      #footer {
+        position: absolute;
+        width: 100%;
+        height: 2em;
+        bottom: 0.3em;
+        background: rgba(25, 25, 25, .75);
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center
+      }
+
+      #footer.full-width {
+        background: transparent;
+        bottom: -.3em;
+      }
+
+      #InfoText {
+        position: relative;
+        float: right;
+        right: 1em;
+      }
+
+      #InfoButton {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        top: 1em;
+        float: right;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        height: 2.5em;
+        width: 2.5em;
+      }
+
+      #InfoButton.active {
+        filter: invert(1)
+      }
+
+      #InfoBox {
+        position: relative;
+        right: 1em;
+        top: 0.8em;
+        width: 0em;
+        height: 1.8em;
+        background: white;
+        border: 2px solid rgb(54, 57, 62);
+        border-radius: 5px;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        transition: width 1.5s, opacity 1s;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      #InfoBox.active {
+        width: 23em;
+        opacity: 1;
+        transition: width 1.5s, opacity 1s;
+      }
+
     </style>
   </head>
 
   <body>
-  
+    <!--<div id='v1' style='z-index:200'>
+
+    </div> -->
+
     <body onload="startTime()">
-    <header id="gradient-top"></header>
-    <button id='reveal-button' onclick='revealPage()'>Enter</button>
-    <div id="IntroText">
-      <h1 id="Username">DapperPixelguy</h1>
-      <!-- Your content here -->
-      <div id='social-Links'>
-        <div style='position: relative;'>
-          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
-          <!-- <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Twitter]</p> -->
-        </div>
-        <div style='position: relative;'>
-          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
-          <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
-        </div>
-        <div style='position: relative;'>
-          <a style='position: relative; text-align: center; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
-          <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
+      <header id="gradient-top"></header>
+      <button id='reveal-button' onclick='revealPage()'>Enter</button>
+
+      <div id="InfoText">
+        <button id='InfoButton' onclick='showInfo()'>
+          <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75'>
+        </button>
+        <div id="InfoBox">
+          <p style="position: relative; left: 5px; bottom:35%; font-size: 80%;">
+            Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
+          </p>
         </div>
       </div>
 
-    </div>
-    <p id='Credit'>[DapperPixelguy MMXXIII]</p>
-    <p id='Device'>[Unknown]</p>
-    <p id='Time'></p>
+      <div id="IntroText">
+        <h1 id="Username">DapperPixelguy</h1>
+        <!-- Your content here -->
+        <div id='social-Links'>
 
-    <script>
-      var y
-      var introText = document.getElementById('IntroText');
-      var gradTop = document.getElementById('gradient-top');
-      var y = document.getElementById("reveal-button")
-      var z = document.getElementById("Username")
-      var socialLinks = document.getElementById("social-Links")
-      var device = document.getElementById("Device")
-      var credit = document.getElementById("Credit")
-      var time = document.getElementById('Time')
-      // Function to check and apply the class based on div width
-      function checkDivWidth() {
-        let details = navigator.userAgent
-        let regexp = /android|iphone|kindle|ipad/i
-        let isMobileDevice = regexp.test(details)
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[Discord]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://discord.com/users/639945209446400020' target='_blank'>[\\\\\\\]</a>
 
-        if (isMobileDevice) {
-          introText.classList.add('mobile');
-          gradTop.classList.add('full-width');
-        } else {
-          //var y = document.getElementById('reveal-button');
-          if (introText.offsetWidth <= 722) {
-            introText.classList.add('full-width');
+          </div>
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: absolute; left: 50%; transform: translate(-50%); align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[Steam]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='http://steamcommunity.com/id/dapperpixelguy' target='_blank'>[|||||]</a>
+            <!--   <p style= 'position: relative; top: 1.5em; text-align: center; font-size: 1.5em'>[Steam]</p> -->
+          </div>
+          <div style='display: flex; flex-flow: column nowrap; row-gap: 30px; position: static; align-items: center'>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[Github]</a>
+            <a style='position: static; font-size: 1.5em; text-decoration: none' href='https://github.com/DapperPixelguy' target='_blank'>[//////]</a>
+            <!--  <p style= 'position: relative; top: 1.5em; text-align; center; font-size: 1.5em'>[PLACEHOLDER]</p> -->
+          </div>
+        </div>
+
+      </div>
+      <div id='footer'>
+        <p id='Credit'>[DapperPixelguy MMXXIII]</p>
+        <p id='Device'>[Unknown]</p>
+        <p id='Time'></p>
+      </div>
+      <script>
+        var introText = document.getElementById('IntroText');
+        var gradTop = document.getElementById('gradient-top');
+        var y = document.getElementById("reveal-button")
+        var z = document.getElementById("Username")
+        var socialLinks = document.getElementById("social-Links")
+        var device = document.getElementById("Device")
+        var credit = document.getElementById("Credit")
+        var time = document.getElementById('Time')
+        var footer = document.getElementById('footer')
+        // Function to check and apply the class based on div width
+        function checkDivWidth() {
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
+
+          if (isMobileDevice) {
+            introText.classList.add('mobile');
             gradTop.classList.add('full-width');
+            footer.classList.add('full-width')
           } else {
-            introText.classList.remove('full-width');
-            gradTop.classList.remove('full-width');
+            //var y = document.getElementById('reveal-button');
+            if (introText.offsetWidth <= 722) {
+              introText.classList.add('full-width');
+              gradTop.classList.add('full-width');
+              footer.classList.add('full-width')
+            } else {
+              introText.classList.remove('full-width');
+              gradTop.classList.remove('full-width');
+              footer.classList.remove('full-width')
+            }
           }
         }
-      }
 
-      // Run the function on page load and resize
-      window.addEventListener('load', function() {
-        y = document.getElementById('reveal-button')
-      })
+        // Run the function on page load and resize
+        window.addEventListener('load', function() {
+          y = document.getElementById('reveal-button')
+        })
 
-    </script>
+      </script>
 
-    <script>
-      function revealPage() {
-        let details = navigator.userAgent
-        let regexp = /android|iphone|kindle|ipad/i
-        let isMobileDevice = regexp.test(details)
+      <script>
+        function revealPage() {
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
 
-        if (!isMobileDevice) {
-          setTimeout(() => {
-            introText.style.overflowX = 'auto';
-          }, 2100)
-          setTimeout((checkDivWidth), 1601)
-          setTimeout(() => {
-            window.addEventListener('load', checkDivWidth);
-            window.addEventListener('resize', checkDivWidth);
-            console.log('Run!')
-          }, 1601)
-        } else {
-          introText.style.transition = 'width 0s'
-          z.style.transition = 'opacity 1s 0.3s'
-          socialLinks.style.transition = 'opacity 1s 0.6s'
-          checkDivWidth()
+          if (!isMobileDevice) {
+            setTimeout(() => {
+              introText.style.overflowX = 'auto';
+            }, 2100)
+            setTimeout((checkDivWidth), 1601)
+            setTimeout(() => {
+              window.addEventListener('load', checkDivWidth);
+              window.addEventListener('resize', checkDivWidth);
+              console.log('Run!')
+            }, 1601)
+          } else {
+            introText.style.transition = 'width 0s'
+            z.style.transition = 'opacity 1s 0.3s'
+            socialLinks.style.transition = 'opacity 1s 0.6s'
+            checkDivWidth()
+          }
+
+          introText.style.opacity = '1'
+          introText.classList.add("clicked")
+          z.classList.add("clicked")
+          socialLinks.classList.add("clicked")
+          y.style.display = 'none'
+
+
         }
 
-        introText.style.opacity = '1'
-        introText.classList.add("clicked")
-        z.classList.add("clicked")
-        socialLinks.classList.add("clicked")
-        y.style.display = 'none'
+      </script>
 
+      <script>
+        window.addEventListener('load', function() {
+          y.style.display = 'block';
+          let details = navigator.userAgent
+          let regexp = /android|iphone|kindle|ipad/i
+          let isMobileDevice = regexp.test(details)
 
-      }
+          if (isMobileDevice) {
+            device.innerText = 'Viewing on: [Mobile]'
+            device.style.fontSize = '150%'
+            credit.style.fontSize = '150%'
+            time.style.fontSize = '150%'
+          } else {
+            device.innerText = 'Viewing on: [Desktop]'
+          }
+        });
 
-    </script>
-
-    <script>
-      window.addEventListener('load', function() {
-        y.style.display = 'block';
-        let details = navigator.userAgent
-        let regexp = /android|iphone|kindle|ipad/i
-        let isMobileDevice = regexp.test(details)
-
-        if (isMobileDevice) {
-          device.innerText = 'Viewing on: [Mobile]'
-          device.style.fontSize = '150%'
-          credit.style.fontSize = '150%'
-          time.style.fontSize = '150%'
-        } else {
-          device.innerText = 'Viewing on: [Desktop]'
+      </script>
+      <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('Time').innerHTML = h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
         }
-      });
 
-    </script>
-    <script>
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('Time').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
+        function checkTime(i) {
+          if (i < 10) {
+            i = "0" + i
+          }; // add zero in front of numbers < 10
+          return i;
+        }
 
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
-  </body>
+      </script>
+      <script>
+        function showInfo() {
+          var infoBox = document.getElementById('InfoBox')
+          var infoButton = document.getElementById('InfoButton')
+          if (infoBox.classList.contains('active')) {
+            infoBox.classList.remove('active')
+            infoButton.classList.remove('active')
+          } else {
+            infoBox.classList.add('active')
+            infoButton.classList.add('active')
+          }
+        }
+
+      </script>
+    </body>
 
 </html>

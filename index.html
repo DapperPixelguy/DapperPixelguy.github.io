@@ -274,7 +274,7 @@ Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
         right: 1em;
       }
       #InfoText.mobile{
-        scale: 3;
+        scale: 1.5
       }
 
       #InfoButton {
@@ -388,8 +388,8 @@ Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
           if (isMobileDevice) {
             introText.classList.add('mobile');
             gradTop.classList.add('full-width');
-            footer.classList.add('full-width');
-            infoText.classList.add('mobile');
+            footer.classList.add('full-width')
+            infoText.classList.add('mobile')
           } else {
             //var y = document.getElementById('reveal-button');
             if (introText.offsetWidth <= 722) {
@@ -461,6 +461,7 @@ Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
             device.style.fontSize = '150%'
             credit.style.fontSize = '150%'
             time.style.fontSize = '150%'
+            infoText.classList.add('mobile')
           } else {
             device.innerText = 'Viewing on: [Desktop]'
           }

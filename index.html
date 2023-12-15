@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
----TODO---
--View counter
+  <!-- 
+Place #credit, #device, #time into their own (#footer?) div that has styling applied, maybe a bar to differentiate them from #IntroText?
+Stop #IntroText overlapping with this bar
 
+Make #footer a flexbox to contain #time #device #credit. Position them vertically centered, and make the height thinner to create a sleeker look
+
+View counter
+Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
 -->
 
   <head>
-    <title>Dapper | Software Developer</title>
+    <title>DapperPixelguy</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anonymous+Pro">
-    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/320px-Trollface_non-free.png">
+    <link rel="icon" type="image/png" href="https://th.bing.com/th/id/OIP.vjJNW2lb4IlHMuTgLo_MnwHaGB?pid=ImgDet&rs=1">
     <style>
       html {
         min-height: 100%;
@@ -269,6 +273,9 @@
         float: right;
         right: 1em;
       }
+      #InfoText.mobile{
+        scale: 1.5
+      }
 
       #InfoButton {
         position: relative;
@@ -371,6 +378,7 @@
         var credit = document.getElementById("Credit")
         var time = document.getElementById('Time')
         var footer = document.getElementById('footer')
+        var infoText = document.getElementById('InfoText')
         // Function to check and apply the class based on div width
         function checkDivWidth() {
           let details = navigator.userAgent
@@ -381,6 +389,7 @@
             introText.classList.add('mobile');
             gradTop.classList.add('full-width');
             footer.classList.add('full-width')
+            InfoText.classList.add('mobile')
           } else {
             //var y = document.getElementById('reveal-button');
             if (introText.offsetWidth <= 722) {

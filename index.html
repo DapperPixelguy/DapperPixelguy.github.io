@@ -86,6 +86,7 @@ Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
         text-shadow: 0 2px rgb(200, 200, 200);
         z-index: 1;
         display: none;
+        transition: opacity .05s linear;
       }
 
       #Username {
@@ -432,7 +433,11 @@ Custom domain (.wtf if i can afford it, perhaps .dev? or .catgirl...)
           introText.classList.add("clicked")
           z.classList.add("clicked")
           socialLinks.classList.add("clicked")
-          y.style.display = 'none'
+          y.style.opacity = 0
+          setTimeout(()=>{
+          y.style.display ='none'
+          }, 1000)
+
 
 
         }

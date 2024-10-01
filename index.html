@@ -318,7 +318,7 @@ View counter
         
       }
       
-      #SpecText.mobile{
+      #SpecText.mobile {
         display: none
       }
       
@@ -542,7 +542,7 @@ View counter
             credit.style.fontSize = '150%'
             time.style.fontSize = '150%'
             infoText.classList.add('mobile')
-            specBox.classList.add('mobile')
+            specText.classList.add('mobile')
             
           } else {
             device.innerText = 'Viewing on: [Desktop]'
@@ -550,6 +550,7 @@ View counter
         });
 
       </script>
+      
       <script>
         function startTime() {
           const today = new Date();
@@ -570,6 +571,7 @@ View counter
         }
 
       </script>
+      
       <script>
         function showInfo() {
           var infoBox = document.getElementById('InfoBox')
@@ -595,7 +597,6 @@ View counter
           } else {
             specBox.classList.add('active')
             specButton.classList.add('active')
-            console.log('skibidi')
           }
         }
       

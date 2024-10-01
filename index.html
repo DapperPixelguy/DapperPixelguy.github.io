@@ -310,7 +310,72 @@ View counter
         opacity: 1;
         transition: width 1.5s, opacity 1s;
       }
-
+      
+      #SpecText {
+        position : relative;
+        float: left;
+        left: 1em
+        
+      }
+      
+      #SpecText.mobile{
+        display: none
+      }
+      
+      #SpecButton {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        top: 1em;
+        float: left;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        height: 2.5em;
+        width: 2.5em;
+      }
+      
+      #SpecButton.active {
+        filter: invert(1)
+      }
+      
+      #SpecBox {
+        position: relative;
+        left: 1em;
+        top: 0.8em;
+        width: 0em;
+        height: 0em;
+        background: white;
+        border: 2px solid rgb(54, 57, 62);
+        border-radius: 5px;
+        background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+        color: rgba(255, 255, 255, .75);
+        transition: width 1.5s 1.5s, opacity 1.5s 1s, height 1.5s;
+        opacity: 0;
+        overflow: hidden;
+        
+      }
+      
+      #SpecBox.active {
+        width: 20em;
+        opacity: 1;
+        height: 50em;
+        transition: width 1.5s, opacity 1s, height 1.5s 1.5s
+      }
+      
+      #SpecBox a {
+        position: relative; 
+        font-size: 120%; 
+        text-align: center; 
+        text-decoration: none; 
+        display: block; 
+        color: rgba(255, 255, 255, .75);
+        font-family: arial;
+      }
+       #SpecBox a:hover {
+        font-size: 130%;
+      }
     </style>
   </head>
 
@@ -330,6 +395,26 @@ View counter
         <div id="InfoBox">
           <p style="position: relative; left: 5px; bottom:27%; font-size: 80%;">
             Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
+          </p>
+        </div>
+      </div>
+      
+      <div id ="SpecText">
+        <button id='SpecButton' onclick='showSpec()'>
+          <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75'>
+        </button>
+        <div id ="SpecBox">
+          <p style = "position: relative; top: -10px; font-size: 150%; font-weight: bold; text-align: center ">
+          [Specs]
+          </p>
+          <a style = 'top: -10px' href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
+          Ryzen 7 7800X3D 
+          </a>
+          <a href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
+          RTX 3060 12GB VRAM
+          </a>
+          <p style = "position: relative; left: 5px; font-size: 80%">
+          
           </p>
         </div>
       </div>
@@ -373,6 +458,7 @@ View counter
         var time = document.getElementById('Time')
         var footer = document.getElementById('footer')
         var infoText = document.getElementById('InfoText')
+        var specText = document.getElementById('SpecText')
         // Function to check and apply the class based on div width
         function checkDivWidth() {
           let details = navigator.userAgent
@@ -456,6 +542,8 @@ View counter
             credit.style.fontSize = '150%'
             time.style.fontSize = '150%'
             infoText.classList.add('mobile')
+            specBox.classList.add('mobile')
+            
           } else {
             device.innerText = 'Viewing on: [Desktop]'
           }
@@ -495,6 +583,22 @@ View counter
           }
         }
 
+      </script>
+      
+      <script>
+      	function showSpec() {
+        	var specBox = document.getElementById('SpecBox')
+          var specButton = document.getElementById('SpecButton')
+          if (specBox.classList.contains('active')) {
+          	specBox.classList.remove('active')
+            specButton.classList.remove('active')
+          } else {
+            specBox.classList.add('active')
+            specButton.classList.add('active')
+            console.log('skibidi')
+          }
+        }
+      
       </script>
 <!--      <?php
       session_start();

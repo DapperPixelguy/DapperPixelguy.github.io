@@ -340,6 +340,10 @@ View counter
         filter: invert(1)
       }
       
+      #SpecButton.disabled {
+        cursor: not-allowed
+      }
+      
       #SpecBox {
         position: relative;
         left: 1em;
@@ -354,6 +358,7 @@ View counter
         transition: width 1.5s 1.5s, opacity 1.5s 1s, height 1.5s;
         opacity: 0;
         overflow: hidden;
+        
         
       }
       
@@ -372,6 +377,8 @@ View counter
         display: block; 
         color: rgba(255, 255, 255, .75);
         font-family: arial;
+        top: -10px;
+        padding: 5px
       }
        #SpecBox a:hover {
         font-size: 130%;
@@ -404,18 +411,34 @@ View counter
           <img src='https://i.imgur.com/NNujL60.png' style='height: 2em; opacity: .75'>
         </button>
         <div id ="SpecBox">
-          <p style = "position: relative; top: -10px; font-size: 150%; font-weight: bold; text-align: center ">
+          <p style = "position: relative; top: -10px; font-size: 180%; font-weight: bold; text-align: center ">
           [Specs]
           </p>
-          <a style = 'top: -10px' href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
+         <div id = "core-internals">
+         
+         <p style = 'font-size: 150%; text-align: center'>
+         [Core Internals]
+         </p>
+         <p style = 'text-align: center'>
+         ----------------------------
+         </p>
+         <a style = 'top: -10px' href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
           Ryzen 7 7800X3D 
           </a>
+          
           <a href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
           RTX 3060 12GB VRAM
           </a>
-          <p style = "position: relative; left: 5px; font-size: 80%">
+         
+         <a href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
+          32GB DDR4 RAM
+          </a>
+          </div>
           
-          </p>
+          <a href='https://th.bing.com/th/id/R.bc0e4b1e9b16375edc40457de202419e?rik=%2bVRnsGDxdFV6fg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f11%2fTrollface-Meme-PNG-Picture.png&ehk=YC7lbDbVYIAZ5D6uRPe80Rvn0hQ2Og6WlY%2fQCcLGTkI%3d&risl=&pid=ImgRaw&r=0' target ='_blank'>
+          1TB NVME 2.0 Storage
+          
+          </a>
         </div>
       </div>
 
@@ -589,14 +612,24 @@ View counter
       
       <script>
       	function showSpec() {
+        
         	var specBox = document.getElementById('SpecBox')
           var specButton = document.getElementById('SpecButton')
-          if (specBox.classList.contains('active')) {
-          	specBox.classList.remove('active')
-            specButton.classList.remove('active')
-          } else {
-            specBox.classList.add('active')
-            specButton.classList.add('active')
+          if (specButton.classList.contains('disabled')){
+          console.log('erm what')
+          	return
+          console.log('the sigma')
+          }
+          else {
+          	specButton.classList.add('disabled')
+            setTimeout(() => { specButton.classList.remove('disabled')}, 3000)
+            if (specBox.classList.contains('active')) {
+              specBox.classList.remove('active')
+              specButton.classList.remove('active')
+            } else {
+              specBox.classList.add('active')
+              specButton.classList.add('active')
+            }
           }
         }
       

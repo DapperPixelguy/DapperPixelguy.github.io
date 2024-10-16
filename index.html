@@ -408,13 +408,11 @@ View counter
 
       <div id="InfoText">
         <button id='InfoButton' onclick='showInfo()'>
-            <img id ='InfoImg' onmouseover="tro()" src='assets/info.png' style='height: 2em; opacity: .75'>
-            <!-- ONMOUSEOUT NEEDED -->
-            <img id ='TroImg' src='assets/the_tro.gif' style='display: none; height: 2em; opacity: .75'>
+            <img id ='InfoImg' onmouseover="tro()" onmouseleave="untro()" src='assets/info.png' style='height: 2em; opacity: .75'>
         </button>
         <div id="InfoBox">
           <p style="position: relative; left: 5px; bottom:27%; font-size: 80%;">
-            Created as an introduction to HTML and CSS. Most likely not recieving any more major changes.
+            Created as an introduction to HTML and CSS. Most likely not receiving any more major changes.
           </p>
         </div>
       </div>
@@ -524,9 +522,13 @@ View counter
       <script>
 
         function tro() {
-            img = document.getElementById('InfoImg')
-            img.src = 'assets/the_tro.gif'
+            document.getElementById('InfoImg').src = 'assets/the_tro.gif'
           }
+
+        function untro() {
+            document.getElementById('InfoImg').src = 'assets/info.png'
+
+        }
       </script>
       <script>
         var introText = document.getElementById('IntroText');

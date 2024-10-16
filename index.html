@@ -289,6 +289,7 @@ View counter
         filter: invert(1)
       }
 
+
       #InfoBox {
         position: relative;
         right: 1em;
@@ -407,7 +408,9 @@ View counter
 
       <div id="InfoText">
         <button id='InfoButton' onclick='showInfo()'>
-          <img src='assets/info.png' style='height: 2em; opacity: .75'>
+            <img id ='InfoImg' onmouseover="tro()" src='assets/info.png' style='height: 2em; opacity: .75'>
+            <!-- ONMOUSEOUT NEEDED -->
+            <img id ='TroImg' src='assets/the_tro.gif' style='display: none; height: 2em; opacity: .75'>
         </button>
         <div id="InfoBox">
           <p style="position: relative; left: 5px; bottom:27%; font-size: 80%;">
@@ -518,6 +521,13 @@ View counter
         <p id='Device'>[Unknown]</p>
         <p id='Time'></p>
       </div>
+      <script>
+
+        function tro() {
+            img = document.getElementById('InfoImg')
+            img.src = 'assets/the_tro.gif'
+          }
+      </script>
       <script>
         var introText = document.getElementById('IntroText');
         var gradTop = document.getElementById('gradient-top');

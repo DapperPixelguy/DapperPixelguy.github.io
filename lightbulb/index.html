@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            body {
+                background: black;
+                transition: background 0.3s;
+            }
+
+            #container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            #timercontainer {
+                background: green;
+                display: flex;
+                flex-direction: column;
+                border: green 0px solid;
+                border-radius: 5px;
+                font-family: 'Courier New', Courier, monospace;
+                color: white;
+                text-align: center;
+                padding: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <img src="BulbOff.png" id="Bulb">
+            <div id="timercontainer">
+                <p>How long</p>
+                <input id="BulbInput" type="number">
+                <button id="BulbButton">Confirm</button>
+            </div>
+        </div>
+
+
+    </body>
+    <script>
+        let bulb = document.getElementById("Bulb")
+
+        bulb.addEventListener('click', function(){
+            if (!bulb.classList.contains('Locked')){
+            if (bulb.src.includes('BulbOff.png')){
+                bulb.src = 'BulbOn.png'
+                document.body.style.background = 'white'
+                } else {
+                bulb.src = 'BulbOff.png'
+                document.body.style.background = 'black'
+                }
+            }
+        })
+    </script>
+    <script>
+        let button = document.getElementById("BulbButton")
+        let input = document.getElementById("BulbInput")
+        let active = false
+        
+
+        button.addEventListener('click', function (){
+            let value = input.value
+            console.log(value)
+            let countdown = value
+            let active = true
+            bulb.src = 'BulbOn.png'
+            document.body.style.background = 'white'
+            bulb.classList.add('Locked')
+            input.disabled = true
+            button.disabled = true
+
+            countdowninterval = setInterval(()=>{
+                value -= 1
+                console.log(value)
+                input.value = value
+            }, 1000)
+            
+            setTimeout(()=>{
+                active = false
+                bulb.src = 'BulbOff.png'
+                clearInterval(countdowninterval)
+                document.body.style.background = 'black'
+                bulb.classList.remove('Locked')
+                input.disabled = false
+                button.disabled = false
+            }, Number(value)*1000)
+            
+        })
+
+    </script>
+
+</html>

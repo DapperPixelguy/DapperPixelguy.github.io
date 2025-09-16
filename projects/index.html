@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<HTML>
+<html lang="en">
   <head>
     <title>DapperPixelguy</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Anonymous+Pro">
@@ -15,15 +15,46 @@
         color: rgba(255, 255, 255, .75);
         font-family: 'Anonymous Pro', monospace;
         background: linear-gradient(-45deg, rgb(25, 25, 25), rgb(25, 25, 25), rgb(25, 25, 25), rgb(50, 50, 50), rgb(25, 25, 25), rgb(25, 25, 25), rgb(25, 25, 25));
-        /*background-size: 300%;
-      animation: gradient 20s linear infinite;*/
       }
-      
+
+      #projectcontainer {
+          position: relative;
+          margin: auto;
+          top: 7.5%;
+          height: 60%;
+          width: 60%;
+          background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+          border-radius: 5px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          padding: 5px;
+      }
+
+      #projectcontainer button {
+          border-radius: 7.5px;
+          margin: 5px;
+          background-image: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+          color: rgba(255, 255, 255, .75);
+          font-weight: bold;
+          font-size: 3vh;
+          overflow: hidden;
+      }
+
+      .fancyborder {
+          border: 2px solid;
+          border-color: #545454 #000000 #000000 #545454;
+      }
+
     </style>
   </head>
   <body>
+    <div id="projectcontainer" class="fancyborder">
+        <button class="fancyborder">Lightbulb</button>
+        <button class="fancyborder">Button 2</button>
 
+    </div>
     
   </body>
   
-</HTML>
+</html>

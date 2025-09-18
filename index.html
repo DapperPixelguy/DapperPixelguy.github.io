@@ -88,6 +88,14 @@ View counter
         border-right: #000000 2px solid;
       }
 
+      #reveal-button:hover{
+          cursor: pointer;
+      }
+
+      #reveal-button:hover:active{
+          filter:invert(1);
+      }
+
       #Username {
         position: relative;
         margin: 0 auto;
@@ -296,6 +304,13 @@ View counter
         filter: invert(1)
       }
 
+      #InfoButton:hover {
+          cursor: pointer;
+      }
+
+      #InfoButton:active:hover {
+          filter: invert(1)
+      }
 
       #InfoBox {
         position: relative;
@@ -347,7 +362,15 @@ View counter
         border-bottom: #000000 2px solid;
         border-right: #000000 2px solid;
       }
-      
+
+      #SpecButton:hover:active {
+          filter: invert(1);
+      }
+
+      #SpecButton:hover {
+          cursor: pointer;
+      }
+
       #SpecButton.active {
         filter: invert(1)
       }
@@ -407,6 +430,38 @@ View counter
        #SpecBox a:hover {
         font-size: 130%;
       }
+
+       #projectbutton {
+           position: absolute;
+           left: 50%;
+           top: 0.8em;
+           transform: translate(-50%);
+           height: 3em;
+           width: 15em;
+           background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
+           color: rgba(255, 255, 255, .75);
+           border-left: #545454 2px solid;
+           border-top: #545454 2px solid;
+           border-bottom: #000000 2px solid;
+           border-right: #000000 2px solid;
+           border-radius: 10px;
+       }
+
+       #projectbutton:hover {
+           cursor: pointer;
+       }
+
+       #projectbutton:hover:active {
+           filter:invert(1);
+       }
+
+       #projectbutton span{
+           font-weight: bold;
+           text-shadow: 0 2px rgb(200, 200, 200);
+           font-size: 1.5rem;
+           color: rgba(120, 120, 120, 0.5);
+           line-height: 65%;
+       }
     </style>
   </head>
 
@@ -417,17 +472,19 @@ View counter
       <header id="gradient-top"></header>
       <button id='reveal-button' onclick='revealPage()'>Enter</button>
 
+      <button id="projectbutton" onclick="location.href='projects/index.html'"><span>Projects</span></button>
+
       <div id="InfoText">
         <button id='InfoButton' onclick='showInfo()'>
             <img id ='InfoImg' onmouseover="tro()" onmouseleave="untro()" src='assets/info.png' style='height: 2em; opacity: .75'>
         </button>
         <div id="InfoBox">
-          <p style="position: relative; left: 5px; bottom:33%; font-size: 80%;">
-            Created as an introduction to HTML and CSS. Most likely not receiving any more major changes.
+          <p style="position: relative; left: 5px; bottom:31%; font-size: 80%;">
+            Created as an introduction to HTML and CSS. Potentially receiving some more changes.
           </p>
         </div>
       </div>
-      
+
       <div id ="SpecText">
         <button id='SpecButton' onclick='showSpec()'>
           <img src='assets/monitor.png' style='height: 1.7em; opacity: .7'>

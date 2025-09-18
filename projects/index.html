@@ -34,6 +34,9 @@
           width: 2.5em;
           background: linear-gradient(135deg, rgb(50, 50, 50), rgb(25, 25, 25));
           border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
       }
 
       #returnbutton:hover:active {
@@ -41,8 +44,8 @@
       }
 
       #returnbutton img{
-          width: 100%;
-          height: 100%;
+          width: 130%;
+          aspect-ratio: 4/5;
       }
 
       #projectcontainer {
@@ -55,7 +58,7 @@
           border-radius: 5px;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          grid-template-rows: repeat(8, 1fr);
           padding: 5px;
       }
 
@@ -82,14 +85,14 @@
     </style>
   </head>
   <body>
-    <button id="returnbutton" class="fancyborder" onclick="location.href='../index.html'"><img src="../assets/home.png" style="filter: invert(1); width:120%; transform: translate(-10%);"></button>
+    <button id="returnbutton" class="fancyborder" onclick="location.href='../index.html'"><img src="../assets/home.png" style="filter: invert(1)"></button>
     <div id="titlecontainter" class="fancyborder">
         <p>Projects</p>
     </div>
     <div id="projectcontainer" class="fancyborder">
         <button class="fancyborder" onclick="location.href='lightbulb/index.html'">Lightbulb</button>
-        <button class="fancyborder">Button 2</button>
-        <button class="fancyborder">Button 2</button>
+        <button class="fancyborder">Project 2</button>
+        <button class="fancyborder">Project 3</button>
         <button class="fancyborder">Button 2</button>
         <button class="fancyborder">Button 2</button>
         <button class="fancyborder">Button 2</button>

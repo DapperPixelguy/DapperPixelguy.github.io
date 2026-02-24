@@ -85,7 +85,7 @@ html {
 
       @keyframes Cursor {
             from {border-right: 2px solid rgba(255,255,255, 0.75)}
-            to {border-right: 2px solid #00000000}
+            to {border-right: 2px solid transparent}
       }
 
       #Username {

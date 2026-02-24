@@ -9,7 +9,7 @@ async function typewrite() {
           }
           await new Promise(resolve => setTimeout(resolve, 3000))
           elem.style.animationIterationCount = 1;
-          elem.addEventListener('animationend', () => {elem.style.animation = 'none'})
+          // elem.addEventListener('animationend', () => {elem.style.animation = 'none'})
       }
 
         function tro() {

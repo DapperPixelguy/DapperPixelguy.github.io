@@ -83,21 +83,31 @@ html {
           filter:invert(1);
       }
 
+      @keyframes Cursor {
+            from {border-right: 2px solid rgba(255,255,255, 0.75)}
+            to {border-right: 2px solid #00000000}
+      }
+
       #Username {
         position: relative;
-        margin: 0 auto;
         text-align: center;
-        overflow: hidden;
         white-space: nowrap;
-        border-right: 2px solid rgba(255, 255, 255, .75);
-        border-right-color: transparent;
+        border-right: 2px solid transparent;
         line-height: 1.1;
         top: 1.1em;
-        left: 50%;
-        transform: translate(-50%);
+        margin: 0 auto;
+        width: fit-content;
+          opacity: 0;
+        /*left: 50%;*/
+        /*transform: translate(-50%);*/
         font-size: 4em;
-        opacity: 0;
-        transition: opacity 1s 1.5s;
+        /*transition: opacity 1s 1.5s;*/
+      }
+
+      /* Applied once the 'Enter' button is clicked */
+      #Username.clicked {
+        opacity: 1;
+          animation: Cursor 1s infinite;
       }
 
       #Credit {
@@ -117,10 +127,6 @@ html {
         left: 50%;
         font-size: 80%;
         transform: translate(-50%)
-      }
-
-      #Username.clicked {
-        opacity: 1;
       }
 
       #social-Links {

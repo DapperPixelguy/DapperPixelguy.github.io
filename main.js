@@ -1,5 +1,5 @@
 async function typewrite() {
-          let elem = document.getElementById('username')
+          let elem = document.getElementById('Username')
           let text = elem.innerText
           let count = 0
           elem.innerText = '';
@@ -24,7 +24,7 @@ async function typewrite() {
 var introText = document.getElementById('IntroText');
         var gradTop = document.getElementById('gradient-top');
         var y = document.getElementById("reveal-button")
-        var z = document.getElementById("Username")
+        var username = document.getElementById("Username")
         var socialLinks = document.getElementById("social-Links")
         var device = document.getElementById("Device")
         var credit = document.getElementById("Credit")
@@ -79,14 +79,20 @@ function revealPage() {
             }, 1601)
           } else {
             introText.style.transition = 'width 0s'
-            z.style.transition = 'opacity 1s 0.3s'
+            username.style.transition = 'opacity 1s 0.3s'
             socialLinks.style.transition = 'opacity 1s 0.6s'
             checkDivWidth()
           }
 
           introText.style.opacity = '1'
           introText.classList.add("clicked")
-          z.classList.add("clicked")
+
+
+          setTimeout(()=>{
+            username.classList.add("clicked")
+            typewrite()
+            }, 600)
+
           socialLinks.classList.add("clicked")
           y.style.opacity = 0
           setTimeout(()=>{

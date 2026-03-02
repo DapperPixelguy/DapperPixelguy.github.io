@@ -108,6 +108,7 @@ window.addEventListener('load', function() {
           let details = navigator.userAgent
           let regexp = /android|iphone|kindle|ipad/i
           let isMobileDevice = regexp.test(details)
+          startTime()
 
           if (isMobileDevice) {
             device.innerText = 'Viewing on: [Mobile]'

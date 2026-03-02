@@ -4,7 +4,7 @@ async function typewrite() {
           let count = 0
           elem.innerText = '';
           for (; count <= text.length; count++){
-            await new Promise(resolve => setTimeout(resolve, 200))
+            await new Promise(resolve => setTimeout(resolve, 120))
             elem.innerText = text.slice(0,count)
           }
           await new Promise(resolve => setTimeout(resolve, 3000))
@@ -91,13 +91,13 @@ function revealPage() {
           setTimeout(()=>{
             username.classList.add("clicked")
             typewrite()
-            }, 600)
+            }, 1000)
 
           socialLinks.classList.add("clicked")
           y.style.opacity = 0
           setTimeout(()=>{
           y.style.display ='none'
-          }, 1000)
+          }, 1400)
 
 
 
